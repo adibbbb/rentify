@@ -1,5 +1,6 @@
 //import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:rentify/home_page.dart';
 import 'package:rentify/welcome_data.dart';
 //import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -9,9 +10,11 @@ class WelcomePage extends StatefulWidget {
   State<WelcomePage> createState() => _WelcomePageState();
 }
 
-class _WelcomePageState extends State<WelcomePage> {
+class  _WelcomePageState extends State<WelcomePage> {
   int currectindex = 0;
   late final PageController _controller;
+
+  bool onLastPage = false;
 
   @override
   void initState() {
@@ -37,13 +40,14 @@ class _WelcomePageState extends State<WelcomePage> {
               onPageChanged: (int index){
                 setState(() {
                   currectindex = index;
+                  onLastPage = (index == 3);
                 });
               },
               
               itemCount: contents.length,
               itemBuilder: (_,i){
                 return Padding(
-                  padding: const EdgeInsets.all(40),
+                  padding: const EdgeInsets.all(45),
                   child: Column(
                     children: [
                       SizedBox(height: 100,),
@@ -83,7 +87,9 @@ class _WelcomePageState extends State<WelcomePage> {
               children: [
                 welcomeNavBtn(
                   name: 'Skip',
-                  onPressed: (){},
+                  onPressed: (){
+                    _controller.jumpToPage(3);
+                  },
 
                 ), 
                 SizedBox(width: 60),
@@ -93,8 +99,21 @@ class _WelcomePageState extends State<WelcomePage> {
                 (index) => buildDot(index, context),),
                 ),
                 SizedBox(width: 60),
-                Icon(Icons.arrow_forward),
-                welcomeNavBtn(name: 'Next', 
+                if(onLastPage == true)... [
+                  welcomeNavBtn(name: 'Done', 
+                  onPressed: (){
+                    Navigator.push(
+                      context, MaterialPageRoute(
+                        builder: (context){
+                          return Homee();
+                        },
+                      ),
+                    );
+                  },
+                ),
+                ]
+                else...[
+                  welcomeNavBtn(name: 'Next', 
                 onPressed: (){
                   _controller.nextPage(
                   duration: Duration(milliseconds: 400), 
@@ -102,6 +121,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   );
                 },
                 ),
+                ],
               ],
             ),
           )
@@ -136,6 +156,7 @@ class welcomeNavBtn extends StatelessWidget {
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
+
     return InkWell(
       onTap: onPressed,
       splashColor: Colors.black12,
