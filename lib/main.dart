@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rentify/home_page.dart';
 import 'login page/forgetpass_email.dart';
 
 void main() {
@@ -19,6 +20,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: PassEmailPage());
+        home: HomePage());
   }
 }

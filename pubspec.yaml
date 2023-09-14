@@ -40,6 +40,7 @@ dependencies:
   dots_indicator: ^2.1.2
   email_validator: '^2.1.16'
   google_fonts: ^5.1.0
+  flutter_image_slideshow: ^0.1.6
 
 dev_dependencies:
   flutter_test:
@@ -60,12 +61,13 @@ flutter:
   assets:
     - asset/
     - asset/login/
+    - asset/home/
 
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
-  uses-material-design: true
+  # uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   #assets:
