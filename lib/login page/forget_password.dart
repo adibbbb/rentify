@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rentify/login page/forgetpass_email.dart';
 
 class ForgetPassPage extends StatefulWidget {
   TextEditingController emailController = TextEditingController(text: "");
@@ -109,7 +110,16 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 172, 25, 0),
                           child: IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return PassEmailPage();
+                                  },
+                                ),
+                              );
+                            },
                             icon: Image.asset(
                               'asset/login/submt.png',
                             ), // Replace with the path to your image asset.

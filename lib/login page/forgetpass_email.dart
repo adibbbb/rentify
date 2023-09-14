@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rentify/login page/success_pass.dart';
 
 class PassEmailPage extends StatelessWidget {
   const PassEmailPage({super.key});
@@ -82,7 +83,16 @@ class PassEmailPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 641, 0, 0),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return SuccessPage();
+                      },
+                    ),
+                  );
+                },
                 icon: Image.asset(
                   'asset/login/backemail.png',
                 ), // Replace with the path to your image asset.
