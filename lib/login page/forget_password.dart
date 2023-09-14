@@ -83,24 +83,23 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                       Text(
                         "Already have an account?",
                         style: GoogleFonts.poppins(
-                          fontSize: 12,
+                          fontSize: 14,
                           color: Color(0xFF888888),
                         ),
                       ),
                       SizedBox(width: 8), // Add spacing between text and button
                       TextButton(
+                        onPressed: () {},
                         style: TextButton.styleFrom(
-                          foregroundColor: Color(0xff107793),
-                          //foregroundColor: Color.fromARGB(206, 0, 68, 156),
-                          textStyle: const TextStyle(
-                              fontSize: 12,
-                              fontFamily: "poppins",
-                              fontWeight: FontWeight.w700),
+                            padding: EdgeInsets.symmetric(horizontal: 1.0)),
+                        child: Text(
+                          "Sign In",
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xff107793),
+                          ),
                         ),
-                        onPressed: () {
-                          // Add your submit button functionality here
-                        },
-                        child: Text("Sign in"),
                       ),
                     ],
                   ),

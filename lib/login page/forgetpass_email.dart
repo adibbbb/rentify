@@ -34,45 +34,51 @@ class PassEmailPage extends StatelessWidget {
                           text:
                               "We have sent a password recovery \nto your registered email\n \n\n",
                           style: GoogleFonts.poppins(
-                              fontSize: 14, color: Color(0xFF888888))),
-                      TextSpan(
-                          text: "Didn’t receive any email? ",
-                          style: GoogleFonts.poppins(
-                              fontSize: 14, color: Color(0xFF888888))),
+                              fontWeight: FontWeight.normal,
+                              fontSize: 14,
+                              color: Color(0xFF888888))),
                     ]),
               )),
             ),
           ),
-          SizedBox(height: 12),
+          SizedBox(
+            height: 12,
+          ),
           Center(
-            child: Row(
-              children: [
-                Text(
-                  "Already have an account?",
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    color: Color(0xFF888888),
-                  ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 200, 0, 0),
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Didn’t receive any email?",
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        color: Color(0xFF888888),
+                      ),
+                    ),
+                    //SizedBox(width: 8), // Add spacing between text and button
+                    TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                          padding: EdgeInsets.symmetric(horizontal: 2.0)),
+                      child: Text(
+                        " Resubmit",
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xff107793),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(width: 8), // Add spacing between text and button
-                TextButton(
-                  style: TextButton.styleFrom(
-                    foregroundColor: Color(0xff107793),
-                    //foregroundColor: Color.fromARGB(206, 0, 68, 156),
-                    textStyle: const TextStyle(
-                        fontSize: 12,
-                        fontFamily: "poppins",
-                        fontWeight: FontWeight.w700),
-                  ),
-                  onPressed: () {
-                    // Add your submit button functionality here
-                  },
-                  child: Text("Sign in"),
-                ),
-              ],
+              ),
             ),
           ),
           Center(
+            //BUTTON BACK EMAIL
             child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 641, 0, 0),
               child: IconButton(
