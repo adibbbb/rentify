@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rentify/login page/success_pass.dart';
 
 class ChangePassPage extends StatefulWidget {
   const ChangePassPage({super.key});
@@ -10,13 +11,18 @@ class ChangePassPage extends StatefulWidget {
 
 class _ChangePassPageState extends State<ChangePassPage> {
   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _confirmPasswordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
+  //String? _passwordErrorText;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF16A6CC),
-      body: Stack(
-        children: [
+      body: Form(
+        key: _formKey,
+        child: Stack(children: [
           Image.asset(
             'asset/login/bgchange_pass.png',
             height: double.maxFinite,
@@ -40,10 +46,10 @@ class _ChangePassPageState extends State<ChangePassPage> {
                       ),
                       children: [
                         TextSpan(
-                          text: "Enter your new password\n \n\n",
+                          text: "Enter your new password",
                           style: GoogleFonts.poppins(
                             height: 4,
-                            fontWeight: FontWeight.normal,
+                            fontWeight: FontWeight.w500,
                             fontSize: 14,
                             color: Color(0xFF888888),
                           ),
@@ -54,41 +60,157 @@ class _ChangePassPageState extends State<ChangePassPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                child: Text(
-                  "New Password",
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    color: Color(0xFF888888),
-                  ),
+                padding: const EdgeInsets.fromLTRB(0, 49, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(31, 12, 32, 0),
+                      child: Text(
+                        "New Password",
+                        style: GoogleFonts.poppins(
+                          fontSize: 12,
+                          color: Color(0xFF888888),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(31, 12, 32, 0),
+                      child: SizedBox(
+                        width: 327,
+                        height: 45,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: TextField(
+                                controller: _passwordController,
+                                obscureText: true,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  color: Color.fromARGB(165, 34, 34, 34),
+                                ),
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Color(0xffC8EDF9),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      width: 0.8,
+                                      color: Color.fromARGB(209, 2, 214, 229),
+                                    ),
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      width: 0.8,
+                                      color: Color(0xFF16A6CC),
+                                    ),
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  hintText: 'Enter your password',
+                                  hintStyle: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color.fromARGB(165, 34, 34, 34)),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
+              // Confirm Password
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(31, 12, 32, 0),
+                    child: Text(
+                      "Confirm Password",
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        color: Color(0xFF888888),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(31, 12, 32, 0),
+                    child: SizedBox(
+                      width: 327,
+                      height: 45,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              controller: _confirmPasswordController,
+                              obscureText: true,
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                color: Color.fromARGB(165, 34, 34, 34),
+                              ),
+                              decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Color(0xffC8EDF9),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 0.8,
+                                    color: Color.fromARGB(209, 2, 214, 229),
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    width: 0.8,
+                                    color: Color(0xFF16A6CC),
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                hintText: 'Enter your password',
+                                hintStyle: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color.fromARGB(165, 34, 34, 34)),
+                              ),
+                              validator: (value) {
+                                if (value != _passwordController.text) {
+                                  return "Passwords do not match";
+                                }
+                                return null;
+                              },
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              // Submit button
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-                child: TextField(
-                  controller: _passwordController,
-                  obscureText: true, // Hide the entered text as a password
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    color: Colors.black,
-                  ),
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFF16A6CC),
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFF16A6CC),
-                      ),
-                    ),
-                  ),
+                padding: const EdgeInsets.fromLTRB(31, 288, 32, 0),
+                child: IconButton(
+                  onPressed: () {
+                    if (_formKey.currentState?.validate() ?? false) {
+                      // Passwords match, you can proceed with form submission.
+                      // Add your code to handle the password change here.
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => SuccessPage(),
+                        ),
+                      );
+                    }
+                  },
+                  icon: Image.asset('asset/login/resetpass.png'),
                 ),
               ),
             ],
           ),
-        ],
+        ]),
       ),
     );
   }

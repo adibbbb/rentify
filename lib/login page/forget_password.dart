@@ -3,13 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rentify/login page/forgetpass_email.dart';
 
 class ForgetPassPage extends StatefulWidget {
-  TextEditingController emailController = TextEditingController(text: "");
+  const ForgetPassPage({super.key});
 
   @override
   State<ForgetPassPage> createState() => _ForgetPassPageState();
 }
 
 class _ForgetPassPageState extends State<ForgetPassPage> {
+  TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +58,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                     child: Column(
                       children: [
                         TextFormField(
-                          controller: widget.emailController,
+                          controller: emailController,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             filled: true,
@@ -66,6 +67,13 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                               borderSide: BorderSide(
                                   width: 0.8,
                                   color: Color.fromARGB(209, 2, 214, 229)),
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 0.8,
+                                color: Color(0xFF16A6CC),
+                              ),
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                             hintText: 'rentify@gmail.com',
