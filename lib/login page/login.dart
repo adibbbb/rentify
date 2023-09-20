@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rentify/login%20page/sign_up.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -31,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: 321,
+                        height: 300,
                       ),
                       Center(
                         child: Column(
@@ -195,7 +196,16 @@ class _LoginPageState extends State<LoginPage> {
             child: Padding(
               padding: const EdgeInsets.fromLTRB(35, 610, 28, 0),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return SignUpPage();
+                      },
+                    ),
+                  );
+                },
                 icon: Image.asset(
                   'asset/login/login button.png',
                 ), // Replace with the path to your image asset.
@@ -219,11 +229,20 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     //SizedBox(width: 8), // Add spacing between text and button
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return SignUpPage();
+                            },
+                          ),
+                        );
+                      },
                       style: TextButton.styleFrom(
                           padding: EdgeInsets.symmetric(horizontal: 2.0)),
                       child: Text(
-                        "Sign up",
+                        "Sign Up",
                         style: GoogleFonts.poppins(
                           fontSize: 15,
                           fontWeight: FontWeight.w700,

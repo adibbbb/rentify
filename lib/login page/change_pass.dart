@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rentify/login page/success_pass.dart';
+import 'package:rentify/login%20page/forget_password.dart';
 
 class ChangePassPage extends StatefulWidget {
   const ChangePassPage({super.key});
@@ -58,7 +58,7 @@ class _ChangePassPageState extends State<ChangePassPage> {
                     ),
                   ),
                 ),
-              ),
+              ), // END  TEXT FIELD
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 49, 0, 0),
                 child: Column(
@@ -200,7 +200,7 @@ class _ChangePassPageState extends State<ChangePassPage> {
                       // Add your code to handle the password change here.
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => SuccessPage(),
+                          builder: (context) => ForgetPassPage(),
                         ),
                       );
                     }

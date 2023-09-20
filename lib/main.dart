@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'login page/login.dart';
+import 'package:rentify/login%20page/sign_up.dart';
+import 'splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +20,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: LoginPage());
+        home: LauncherPage());
   }
 }
