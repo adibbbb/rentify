@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rentify/login page/change_pass.dart';
+import 'package:rentify/login page/login.dart';
 
 class SuccessPage extends StatelessWidget {
   const SuccessPage({super.key});
@@ -48,7 +48,7 @@ class SuccessPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return ChangePassPage();
+                      return LoginPage();
                     },
                   ),
                 );

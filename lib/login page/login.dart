@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rentify/login%20page/sign_up.dart';
+import 'package:rentify/login page/forget_password.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -172,7 +173,16 @@ class _LoginPageState extends State<LoginPage> {
                           Padding(
                             padding: const EdgeInsets.fromLTRB(0, 0, 26, 0),
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return ForgetPassPage();
+                                    },
+                                  ),
+                                );
+                              },
                               style: TextButton.styleFrom(),
                               child: Text(
                                 "Forget Password?",
