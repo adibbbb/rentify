@@ -7,6 +7,7 @@ import 'package:rentify/button_nav_bar.dart';
 var services = ["Most Rented", "Brand", "Seat", "Transmission"];
 var selectedService = 0;
 
+
 class katalogmobil {
   final String gambar;
 
@@ -28,6 +29,8 @@ class HomePage extends StatefulWidget {
 
   @override
   State<HomePage> createState() => _HomePageState();
+
+  _HeroBanner() {}
 }
 
 class _HomePageState extends State<HomePage> {
@@ -140,6 +143,8 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 15,
             ),
+
+            
 
             //KATALOG
             Column(

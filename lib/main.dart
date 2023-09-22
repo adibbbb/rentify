@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:rentify/home%20page/home_brand.dart';
 import 'package:rentify/home%20page/home_page.dart';
+import 'package:rentify/home%20page/home_seat.dart';
+import 'package:rentify/home%20page/home_transmission.dart';
 import 'login page/forgetpass_email.dart';
 
 void main() {
