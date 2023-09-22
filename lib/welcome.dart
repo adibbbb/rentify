@@ -1,6 +1,6 @@
 //import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:rentify/login page/login.dart';
+import 'package:rentify/home%20page/home_page.dart';
 import 'package:rentify/welcome_data.dart';
 //import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -79,6 +79,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         )
                       ],
                     ),
+
                   );
                 },
               ),
@@ -148,8 +149,8 @@ class _WelcomePageState extends State<WelcomePage> {
   }
 }
 
-class welcomeNavBtn extends StatelessWidget {
-  const welcomeNavBtn({
+class WelcomeNavBtn extends StatelessWidget {
+  const WelcomeNavBtn({
     super.key,
     required this.name,
     required this.onPressed,
