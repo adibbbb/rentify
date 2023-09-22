@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: 300,
+                        height: 315,
                       ),
                       Center(
                         child: Column(
@@ -198,13 +198,13 @@ class _LoginPageState extends State<LoginPage> {
                       ), //END FORGET PASSWORD?
                     ],
                   ),
-                ),
+                ), //masukin sini
               ),
             ],
           ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(35, 610, 28, 0),
+              padding: const EdgeInsets.fromLTRB(35, 580, 28, 0),
               child: IconButton(
                 onPressed: () {
                   Navigator.push(
