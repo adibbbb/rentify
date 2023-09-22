@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rentify/login page/forgetpass_email.dart';
 
 class ForgetPassPage extends StatefulWidget {
-  TextEditingController emailController = TextEditingController(text: "");
+  const ForgetPassPage({super.key});
 
   @override
   State<ForgetPassPage> createState() => _ForgetPassPageState();
 }
 
 class _ForgetPassPageState extends State<ForgetPassPage> {
+  TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +58,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                     child: Column(
                       children: [
                         TextFormField(
-                          controller: widget.emailController,
+                          controller: emailController,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             filled: true,
@@ -65,6 +67,13 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                               borderSide: BorderSide(
                                   width: 0.8,
                                   color: Color.fromARGB(209, 2, 214, 229)),
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 0.8,
+                                color: Color(0xFF16A6CC),
+                              ),
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                             hintText: 'rentify@gmail.com',
@@ -83,24 +92,23 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                       Text(
                         "Already have an account?",
                         style: GoogleFonts.poppins(
-                          fontSize: 12,
+                          fontSize: 14,
                           color: Color(0xFF888888),
                         ),
                       ),
                       SizedBox(width: 8), // Add spacing between text and button
                       TextButton(
+                        onPressed: () {},
                         style: TextButton.styleFrom(
-                          foregroundColor: Color(0xff107793),
-                          //foregroundColor: Color.fromARGB(206, 0, 68, 156),
-                          textStyle: const TextStyle(
-                              fontSize: 12,
-                              fontFamily: "poppins",
-                              fontWeight: FontWeight.w700),
+                            padding: EdgeInsets.symmetric(horizontal: 1.0)),
+                        child: Text(
+                          "Sign In",
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xff107793),
+                          ),
                         ),
-                        onPressed: () {
-                          // Add your submit button functionality here
-                        },
-                        child: Text("Sign in"),
                       ),
                     ],
                   ),
@@ -110,7 +118,16 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0, 172, 25, 0),
                           child: IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return PassEmailPage();
+                                  },
+                                ),
+                              );
+                            },
                             icon: Image.asset(
                               'asset/login/submt.png',
                             ), // Replace with the path to your image asset.

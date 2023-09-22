@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rentify/login page/login.dart';
 
 class SuccessPage extends StatelessWidget {
   const SuccessPage({super.key});
@@ -10,7 +11,7 @@ class SuccessPage extends StatelessWidget {
       backgroundColor: Color(0xFF16A6CC),
       body: Stack(children: [
         Image.asset(
-          'assets/bgsuccess.png',
+          'asset/login/bgsuccess.png',
           height: double.maxFinite,
           width: double.maxFinite,
           fit: BoxFit.cover,
@@ -42,9 +43,18 @@ class SuccessPage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.fromLTRB(0, 259, 0, 0),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginPage();
+                    },
+                  ),
+                );
+              },
               icon: Image.asset(
-                'rightarrow.png',
+                'asset/login/rightarrow.png',
               ), // Replace with the path to your image asset.
             ),
           ),
