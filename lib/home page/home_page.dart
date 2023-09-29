@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:rentify/button_nav_bar.dart';
 
-
 var services = ["Most Rented", "Brand", "Seat", "Transmission"];
 var selectedService = 0;
-
 
 class katalogmobil {
   final String gambar;
@@ -143,98 +141,297 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 15,
             ),
-
-            
-
-            //KATALOG
-            Column(
-              children: [
-                Container(
-                  height: 146,
-                  width: 450,
-                  child: CarouselSlider(
-                    options: CarouselOptions(
-                      enlargeFactor: 0.2,
-                      autoPlay: true,
-                      autoPlayInterval: Duration(seconds: 3),
-                      autoPlayAnimationDuration: Duration(milliseconds: 800),
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      enlargeCenterPage: true,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          _currentIndex = index;
-                        });
-                      },
+            if (selectedService == 0) ...{
+              //KATALOG
+              Column(
+                children: [
+                  Container(
+                    height: 146,
+                    width: 450,
+                    child: CarouselSlider(
+                      options: CarouselOptions(
+                        enlargeFactor: 0.2,
+                        autoPlay: true,
+                        autoPlayInterval: Duration(seconds: 3),
+                        autoPlayAnimationDuration: Duration(milliseconds: 800),
+                        autoPlayCurve: Curves.fastOutSlowIn,
+                        enlargeCenterPage: true,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            _currentIndex = index;
+                          });
+                        },
+                      ),
+                      items: mobil.map((item) {
+                        return katalog(item: item);
+                      }).toList(),
                     ),
-                    items: mobil.map((item) {
-                      return katalog(item: item);
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: mobil.asMap().entries.map((entry) {
+                      final int index = entry.key;
+                      return Container(
+                        width: 8.0,
+                        height: 8.0,
+                        margin: EdgeInsets.symmetric(horizontal: 4.0),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: _currentIndex == index
+                              ? Color(0xff16A6CC)
+                              : Color(0xffA3E3F5),
+                        ),
+                      );
                     }).toList(),
                   ),
-                ),
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: mobil.asMap().entries.map((entry) {
-                    final int index = entry.key;
-                    return Container(
-                      width: 8.0,
-                      height: 8.0,
-                      margin: EdgeInsets.symmetric(horizontal: 4.0),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color:
-                            _currentIndex == index ? Color(0xff16A6CC) : Color(0xffA3E3F5),
-                      ),
-                    );
-                  }).toList(),
-                ),
-              ],
-            ),
-
-            // REKOMENDASI 4 U
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Recommendation For You',
-                    style: TextStyle(
-                      fontFamily: 'asset/fonts/Poppins-SemiBold.ttf',
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18,
-                      color: Color(0xff16A6CC),
-                    ),
-                  ),
-                  TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'See All',
-                        style: TextStyle(
-                          fontFamily: 'asset/fonts/Poppins-Medium.ttf',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 10,
-                          color: Color(0xff16A6CC),
-                        ),
-                      ))
                 ],
               ),
-            ),
 
-            //KATALOG REKOMENDASI 4 U
-            Container(
-              height: 146,
-              width: 350,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemCount: 3,
-                separatorBuilder: (context, index) => SizedBox(
-                  width: 14,
+              // REKOMENDASI 4 U
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Recommendation For You',
+                      style: TextStyle(
+                        fontFamily: 'asset/fonts/Poppins-SemiBold.ttf',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                        color: Color(0xff16A6CC),
+                      ),
+                    ),
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'See All',
+                          style: TextStyle(
+                            fontFamily: 'asset/fonts/Poppins-Medium.ttf',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 10,
+                            color: Color(0xff16A6CC),
+                          ),
+                        ))
+                  ],
                 ),
-                itemBuilder: (context, index) =>
-                    rekomendasi(item: items[index]),
               ),
-            )
+
+              //KATALOG REKOMENDASI 4 U
+              Container(
+                height: 146,
+                width: 350,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  separatorBuilder: (context, index) => SizedBox(
+                    width: 14,
+                  ),
+                  itemBuilder: (context, index) =>
+                      rekomendasi(item: items[index]),
+                ),
+              )
+
+            } else if (selectedService == 1) ...{
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      'Toyota',
+                      style: TextStyle(
+                        fontFamily: 'asset/fonts/Poppins-SemiBold.ttf',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        color: Color(0xff16A6CC),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Image.asset('asset/home/arrow.png'),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                height: 146,
+                width: 390,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  separatorBuilder: (context, index) =>
+                      SizedBox(width: 0),
+                  itemBuilder: (context, index) => katalog(item: mobil[index]),
+                ),
+              ),
+              // Honda
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      'Honda',
+                      style: TextStyle(
+                        fontFamily: 'asset/fonts/Poppins-SemiBold.ttf',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        color: Color(0xff16A6CC),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Image.asset('asset/home/arrow.png'),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                height: 146,
+                width: 390,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  separatorBuilder: (context, index) =>
+                      SizedBox(width: 0),
+                  itemBuilder: (context, index) => katalog(item: mobil[index]),
+                ),
+              )
+
+            } else if (selectedService == 2) ...{
+              //1-4 seats
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      '1-4 Seats',
+                      style: TextStyle(
+                        fontFamily: 'asset/fonts/Poppins-SemiBold.ttf',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        color: Color(0xff16A6CC),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Image.asset('asset/home/arrow.png'),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                height: 146,
+                width: 390,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  separatorBuilder: (context, index) =>
+                      SizedBox(width: 0),
+                  itemBuilder: (context, index) => katalog(item: mobil[index]),
+                ),
+              ),
+              // 1-8 seats
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      '1-8 Seats',
+                      style: TextStyle(
+                        fontFamily: 'asset/fonts/Poppins-SemiBold.ttf',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        color: Color(0xff16A6CC),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Image.asset('asset/home/arrow.png'),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                height: 146,
+                width: 390,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  separatorBuilder: (context, index) =>
+                      SizedBox(width: 0),
+                  itemBuilder: (context, index) => katalog(item: mobil[index]),
+                ),
+              )
+
+
+            } else if (selectedService == 3) ...{
+              // Auto
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      'Auto',
+                      style: TextStyle(
+                        fontFamily: 'asset/fonts/Poppins-SemiBold.ttf',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        color: Color(0xff16A6CC),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Image.asset('asset/home/arrow.png'),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                height: 146,
+                width: 390,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  separatorBuilder: (context, index) =>
+                      SizedBox(width: 0),
+                  itemBuilder: (context, index) => katalog(item: mobil[index]),
+                ),
+              ),
+              // Manual
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      'Manual',
+                      style: TextStyle(
+                        fontFamily: 'asset/fonts/Poppins-SemiBold.ttf',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        color: Color(0xff16A6CC),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Image.asset('asset/home/arrow.png'),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                height: 146,
+                width: 390,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  separatorBuilder: (context, index) =>
+                      SizedBox(width: 0),
+                  itemBuilder: (context, index) => katalog(item: mobil[index]),
+                ),
+              )
+              
+            }
           ],
         )),
       ),

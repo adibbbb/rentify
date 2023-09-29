@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rentify/home%20page/home_brand.dart';
 import 'package:rentify/home%20page/home_page.dart';
-import 'package:rentify/home%20page/home_seat.dart';
-import 'package:rentify/home%20page/home_transmission.dart';
 import 'login page/forgetpass_email.dart';
 
 
@@ -24,7 +21,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home_page
         home: HomePage());
 
   }

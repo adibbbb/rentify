@@ -1,6 +1,7 @@
 //import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:rentify/home%20page/home_page.dart';
+import 'package:rentify/login%20page/login.dart';
 import 'package:rentify/welcome_data.dart';
 //import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -90,7 +91,7 @@ class _WelcomePageState extends State<WelcomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  welcomeNavBtn(
+                  WelcomeNavBtn(
                     name: 'Skip',
                     onPressed: () {
                       _controller.jumpToPage(3);
@@ -105,7 +106,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   ),
                   SizedBox(width: 60),
                   if (onLastPage == true) ...[
-                    welcomeNavBtn(
+                    WelcomeNavBtn(
                       name: 'Done',
                       onPressed: () {
                         Navigator.push(
@@ -119,7 +120,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       },
                     ),
                   ] else ...[
-                    welcomeNavBtn(
+                    WelcomeNavBtn(
                       name: 'Next',
                       onPressed: () {
                         _controller.nextPage(
