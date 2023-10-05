@@ -16,7 +16,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF16A6CC),
+      backgroundColor: const Color(0xFF16A6CC),
       body: Stack(
         children: [
           Image.asset(
@@ -36,23 +36,23 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                     style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xFF16A6CC),
+                      color: const Color(0xFF16A6CC),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     "Enter your registered email below",
                     style: GoogleFonts.poppins(
                       fontSize: 14,
-                      color: Color(0xFF888888),
+                      color: const Color(0xFF888888),
                     ),
                   ),
-                  SizedBox(height: 69),
+                  const SizedBox(height: 69),
                   Text(
                     "Email Address",
                     style: GoogleFonts.poppins(
                       fontSize: 12,
-                      color: Color(0xFF888888),
+                      color: const Color(0xFF888888),
                     ),
                   ),
                   Padding(
@@ -64,22 +64,22 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color(0xffC8EDF9),
+                            fillColor: const Color(0xffC8EDF9),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   width: 0.8,
                                   color: Color.fromARGB(209, 2, 214, 229)),
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 width: 0.8,
                                 color: Color(0xFF16A6CC),
                               ),
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                             hintText: 'rentify@gmail.com',
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,
                                 color: Color.fromARGB(165, 34, 34, 34)),
@@ -88,27 +88,29 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Row(
                     children: [
                       Text(
                         "Already have an account?",
                         style: GoogleFonts.poppins(
                           fontSize: 14,
-                          color: Color(0xFF888888),
+                          color: const Color(0xFF888888),
                         ),
                       ),
-                      SizedBox(width: 8), // Add spacing between text and button
+                      const SizedBox(
+                          width: 8), // Add spacing between text and button
                       TextButton(
                         onPressed: () {},
                         style: TextButton.styleFrom(
-                            padding: EdgeInsets.symmetric(horizontal: 1.0)),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 1.0)),
                         child: Text(
                           "Sign In",
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
-                            color: Color(0xff107793),
+                            color: const Color(0xff107793),
                           ),
                         ),
                       ),
@@ -125,7 +127,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return PassEmailPage();
+                                    return const PassEmailPage();
                                   },
                                 ),
                               );
