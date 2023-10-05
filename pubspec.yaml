@@ -64,6 +64,8 @@ flutter:
     - asset/
     - asset/login/
     - asset/home/
+    - asset/product/
+
 
 
   # The following line ensures that the Material Icons font is
