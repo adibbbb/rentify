@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rentify/login page/forgetpass_email.dart';
-import 'package:email_auth/email_auth.dart';
+// import 'package:email_auth/email_auth.dart';
 
 class ForgetPassPage extends StatefulWidget {
   const ForgetPassPage({super.key});
