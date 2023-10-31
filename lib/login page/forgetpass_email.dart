@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rentify/login page/change_pass.dart';
+import 'package:pinput/pinput.dart';
 
-class PassEmailPage extends StatelessWidget {
+class PassEmailPage extends StatefulWidget {
   const PassEmailPage({super.key});
 
+  @override
+  State<PassEmailPage> createState() => _PassEmailPageState();
+}
+
+class _PassEmailPageState extends State<PassEmailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +56,34 @@ class PassEmailPage extends StatelessWidget {
                 ),
               ],
             ),
-          ),
+          ), //END JUDUL 4 CODE OTP
+
+          Padding(
+            padding: const EdgeInsets.fromLTRB(28, 0, 28, 260),
+            child: SizedBox(
+              child: Pinput(
+                length: 4,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                defaultPinTheme: PinTheme(
+                    height: 50,
+                    width: 75,
+                    textStyle: GoogleFonts.poppins(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xff16A6CC),
+                    ),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Color(0xffA3E3F5),
+                          width: 1.0,
+                        ))),
+              ),
+            ),
+          ), //END PINPUT HERE
 
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),

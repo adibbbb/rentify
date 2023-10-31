@@ -30,7 +30,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-    
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -39,10 +38,12 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   dots_indicator: ^2.1.2
   email_validator: '^2.1.16'
-  google_fonts: ^5.1.0
+  google_fonts: ^4.0.4
   flutter_image_slideshow: ^0.1.6
   carousel_slider: ^4.2.1
-  
+  pinput: ^3.0.1
+  email_auth: ^1.0.0
+ 
 
 
 dev_dependencies:
@@ -67,6 +68,9 @@ flutter:
     - asset/home/
     - asset/product/
 
+    - asset/profile/
+    - asset/transaction/
+    
 
 
   # The following line ensures that the Material Icons font is

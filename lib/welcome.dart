@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:rentify/login%20page/login.dart';
 import 'package:rentify/welcome_data.dart';
+import 'package:rentify/login page/login.dart';
 //import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class WelcomePage extends StatefulWidget {
