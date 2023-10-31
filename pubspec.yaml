@@ -66,6 +66,8 @@ flutter:
     - asset/
     - asset/login/
     - asset/home/
+    - asset/product/
+
     - asset/profile/
     - asset/transaction/
     
