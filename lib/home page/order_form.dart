@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rentify/home%20page/order_infomation.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:flutter_datetime_picker/src/datetime_picker_theme.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 
-class OrderForm extends StatelessWidget {
+class OrderForm extends StatefulWidget {
   const OrderForm({super.key});
+
+  @override
+  OrderFormState createState() => OrderFormState();
+}
+
+class OrderFormState extends State<OrderForm> {
+  String selectedDate =
+      "${DateTime.now().year.toString()}-${DateTime.now().month.toString().padLeft(2, '0')}-${DateTime.now().day.toString().padLeft(2, '0')}";
+
+  void changeVariableOnUI(DateTime date) {
+    setState(() => selectedDate = formatDateTime(date));
+  }
+
+  String formatDateTime(DateTime date) {
+    return "${date.year.toString()}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,19 +28,17 @@ class OrderForm extends StatelessWidget {
       backgroundColor: const Color(0xff16A6CC),
       body: Stack(
         children: [
-          Container(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Colors.white, // Warna latar belakang
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(60.0),
-                    topRight: Radius.circular(60.0),
-                  ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.white, // Warna latar belakang
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(60.0),
+                  topRight: Radius.circular(60.0),
                 ),
-                height: 740,
               ),
+              height: 740,
             ),
           ),
           Padding(
@@ -87,6 +100,7 @@ class OrderForm extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Container(
+                      alignment: Alignment.centerLeft,
                       width: 140, // Sesuaikan dengan lebar yang Anda inginkan
                       height: 25, // Sesuaikan dengan tinggi yang Anda inginkan
                       decoration: BoxDecoration(
@@ -98,35 +112,48 @@ class OrderForm extends StatelessWidget {
                           width: 1, // Lebar outline border
                         ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 8.0),
-                            child: TextButton(
-                              onPressed: () {
-                                  DatePicker.showDatePicker(context,
-                                    showTitleActions: true,
-                                        minTime: DateTime(2018, 3, 5),
-                                        maxTime: DateTime(2019, 6, 7), onChanged: (date) {
-                                      print('change $date');
-                                    }, onConfirm: (date) {
-                                      print('confirm $date');
-                                  }, currentTime: DateTime.now(), locale: LocaleType.zh);
-                              },
-                              child: const Text(
-                                  'show date time picker (Chinese)',
-                                  style: TextStyle(color: Colors.blue),
-                              )),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(right: 8.0),
-                            child: Icon(
-                              Icons.arrow_drop_down,
-                              color: Color(0xff888888),
-                            ),
-                          ),
-                        ],
+                      child: TextButton(
+                        onPressed: () {
+                          DatePicker.showDatePicker(context,
+                              showTitleActions: true,
+                              minTime: DateTime.now(), onChanged: (date) {
+                            changeVariableOnUI(date);
+                          },
+                              onConfirm: (date) {},
+                              currentTime: DateTime.now(),
+                              locale: LocaleType.en);
+                        },
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TextButton(
+                                  onPressed: () {
+                                    DatePicker.showDatePicker(context,
+                                        showTitleActions: true,
+                                        minTime: DateTime.now(),
+                                        onChanged: (date) {
+                                      changeVariableOnUI(date);
+                                    },
+                                        onConfirm: (date) {},
+                                        currentTime: DateTime.now(),
+                                        locale: LocaleType.en);
+                                  },
+                                  child: Text(
+                                    textAlign: TextAlign.start,
+                                    selectedDate,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black,
+                                    ),
+                                  )),
+                              const Icon(
+                                Icons.arrow_drop_down,
+                                color: Color(0xff888888),
+                                size: 18.0,
+                              ),
+                            ]),
                       ),
                     ),
                   ],
@@ -160,30 +187,54 @@ class OrderForm extends StatelessWidget {
                           width: 1, // Lebar outline border
                         ),
                       ),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 8.0),
-                            child: Text(
-                              '04/09/2023', // Ganti dengan tanggal yang sesuai
-                              style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
-                              ),
+                      // DATEPICKER RETURN DATE
+                      child: TextButton(
+                        onPressed: () {
+                          DatePicker.showDatePicker(context,
+                              showTitleActions: true,
+                              minTime: DateTime.now(), onChanged: (date) {
+                            changeVariableOnUI(date);
+                          },
+                              onConfirm: (date) {},
+                              currentTime: DateTime.now(),
+                              locale: LocaleType.en);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: TextButton(
+                                  onPressed: () {
+                                    DatePicker.showDatePicker(context,
+                                        showTitleActions: true,
+                                        minTime: DateTime.now(),
+                                        onChanged: (date) {
+                                      changeVariableOnUI(date);
+                                    },
+                                        onConfirm: (date) {},
+                                        currentTime: DateTime.now(),
+                                        locale: LocaleType.en);
+                                  },
+                                  child: Text(
+                                    textAlign: TextAlign.start,
+                                    selectedDate,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black,
+                                    ),
+                                  )),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(right: 8.0),
-                            child: Icon(
+                            const Icon(
                               Icons.arrow_drop_down,
                               color: Color(0xff888888),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),
@@ -218,21 +269,32 @@ class OrderForm extends StatelessWidget {
                   width: 1,
                 ),
               ),
-              child: const Stack(
+              child: Stack(
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
                       padding: EdgeInsets.only(left: 8),
-                      child: Text(
-                        '10:10 PM',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w600,
-                          height: 1.5,
-                          color: Colors.black,
-                        ),
-                      ),
+                      child: TextButton(
+                          onPressed: () {
+                            DatePicker.showTime12hPicker(context,
+                                showTitleActions: true, onChanged: (date) {
+                              print('change $date in time zone ' +
+                                  date.timeZoneOffset.inHours.toString());
+                            }, onConfirm: (date) {
+                              print('confirm $date');
+                            }, currentTime: DateTime.now());
+                          },
+                          child: Text(
+                            textAlign: TextAlign.start,
+                            selectedDate,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                          )),
                     ),
                   ),
                 ],
