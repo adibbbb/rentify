@@ -40,7 +40,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 115,
                           ),
                           Text(
@@ -51,19 +51,19 @@ class _SignUpPageState extends State<SignUpPage> {
                               color: Colors.white,
                             ),
                           ),
-                          SizedBox(height: 3),
+                          const SizedBox(height: 3),
                           Text(
                             "Fill your information below",
                             style: GoogleFonts.poppins(
                               fontSize: 15,
                               fontWeight: FontWeight.w400,
-                              color: Color(0xFFA3E3F5),
+                              color: const Color(0xFFA3E3F5),
                             ),
                           ),
                         ],
                       ),
                     ), //END JUDUL
-                    SizedBox(height: 45),
+                    const SizedBox(height: 45),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(35, 12, 32, 0),
                       child: Text(
@@ -71,7 +71,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         textAlign: TextAlign.start,
                         style: GoogleFonts.poppins(
                           fontSize: 12,
-                          color: Color(0xFF888888),
+                          color: const Color(0xFF888888),
                         ),
                       ),
                     ), //END first name JUDUL KECIL
@@ -85,23 +85,23 @@ class _SignUpPageState extends State<SignUpPage> {
                               child: TextFormField(
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: Color(0xffC8EDF9),
+                                  fillColor: const Color(0xffC8EDF9),
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                         width: 0.8,
                                         color:
                                             Color.fromARGB(209, 2, 214, 229)),
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.8,
                                       color: Color(0xFF16A6CC),
                                     ),
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   hintText: 'first name',
-                                  hintStyle: TextStyle(
+                                  hintStyle: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
                                       color: Color.fromARGB(165, 34, 34, 34)),
@@ -112,7 +112,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                     ), // END TEXT FIELD EMAIL
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(35, 12, 32, 0),
                       child: Text(
@@ -120,7 +120,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         textAlign: TextAlign.start,
                         style: GoogleFonts.poppins(
                           fontSize: 12,
-                          color: Color(0xFF888888),
+                          color: const Color(0xFF888888),
                         ),
                       ),
                     ), //END last name JUDUL KECIL
@@ -134,23 +134,23 @@ class _SignUpPageState extends State<SignUpPage> {
                               child: TextFormField(
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: Color(0xffC8EDF9),
+                                  fillColor: const Color(0xffC8EDF9),
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                         width: 0.8,
                                         color:
                                             Color.fromARGB(209, 2, 214, 229)),
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.8,
                                       color: Color(0xFF16A6CC),
                                     ),
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   hintText: 'last name',
-                                  hintStyle: TextStyle(
+                                  hintStyle: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
                                       color: Color.fromARGB(165, 34, 34, 34)),
@@ -161,7 +161,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                     ), // END TEXT LAST NAME
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(35, 12, 32, 0),
                       child: Text(
@@ -169,7 +169,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         textAlign: TextAlign.start,
                         style: GoogleFonts.poppins(
                           fontSize: 12,
-                          color: Color(0xFF888888),
+                          color: const Color(0xFF888888),
                         ),
                       ),
                     ),
@@ -185,23 +185,23 @@ class _SignUpPageState extends State<SignUpPage> {
                                 keyboardType: TextInputType.emailAddress,
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: Color(0xffC8EDF9),
+                                  fillColor: const Color(0xffC8EDF9),
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                         width: 0.8,
                                         color:
                                             Color.fromARGB(209, 2, 214, 229)),
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.8,
                                       color: Color(0xFF16A6CC),
                                     ),
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   hintText: 'rentify@gmail.com',
-                                  hintStyle: TextStyle(
+                                  hintStyle: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
                                       color: Color.fromARGB(165, 34, 34, 34)),
@@ -214,7 +214,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ), // END TEXT FIELD EMAIL
                     //
                     //
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 12, 0, 0),
                       child: Column(
@@ -227,7 +227,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               "Password",
                               style: GoogleFonts.poppins(
                                 fontSize: 12,
-                                color: Color(0xFF888888),
+                                color: const Color(0xFF888888),
                               ),
                             ),
                           ),
@@ -243,13 +243,14 @@ class _SignUpPageState extends State<SignUpPage> {
                                       obscureText: true,
                                       style: GoogleFonts.poppins(
                                         fontSize: 12,
-                                        color: Color.fromARGB(165, 34, 34, 34),
+                                        color: const Color.fromARGB(
+                                            165, 34, 34, 34),
                                       ),
                                       decoration: InputDecoration(
                                         filled: true,
-                                        fillColor: Color(0xffC8EDF9),
+                                        fillColor: const Color(0xffC8EDF9),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             width: 0.8,
                                             color: Color.fromARGB(
                                                 209, 2, 214, 229),
@@ -258,7 +259,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                               BorderRadius.circular(20.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                          borderSide: const BorderSide(
                                             width: 0.8,
                                             color: Color(0xFF16A6CC),
                                           ),
@@ -266,7 +267,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                               BorderRadius.circular(20.0),
                                         ),
                                         hintText: 'Enter your password',
-                                        hintStyle: TextStyle(
+                                        hintStyle: const TextStyle(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w400,
                                             color: Color.fromARGB(
@@ -291,7 +292,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             "Confirm Password",
                             style: GoogleFonts.poppins(
                               fontSize: 12,
-                              color: Color(0xFF888888),
+                              color: const Color(0xFF888888),
                             ),
                           ),
                         ),
@@ -307,13 +308,14 @@ class _SignUpPageState extends State<SignUpPage> {
                                     obscureText: true,
                                     style: GoogleFonts.poppins(
                                       fontSize: 12,
-                                      color: Color.fromARGB(165, 34, 34, 34),
+                                      color:
+                                          const Color.fromARGB(165, 34, 34, 34),
                                     ),
                                     decoration: InputDecoration(
                                       filled: true,
-                                      fillColor: Color(0xffC8EDF9),
+                                      fillColor: const Color(0xffC8EDF9),
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           width: 0.8,
                                           color:
                                               Color.fromARGB(209, 2, 214, 229),
@@ -322,7 +324,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                             BorderRadius.circular(20.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           width: 0.8,
                                           color: Color(0xFF16A6CC),
                                         ),
@@ -330,7 +332,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                             BorderRadius.circular(20.0),
                                       ),
                                       hintText: 'Enter your password',
-                                      hintStyle: TextStyle(
+                                      hintStyle: const TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w400,
                                           color:
@@ -360,7 +362,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             // Add your code to handle the password change here.
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => LoginPage(),
+                                builder: (context) => const LoginPage(),
                               ),
                             );
                           }
@@ -390,20 +392,20 @@ class _SignUpPageState extends State<SignUpPage> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) {
-                                        return LoginPage();
+                                        return const LoginPage();
                                       },
                                     ),
                                   );
                                 },
                                 style: TextButton.styleFrom(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 2.0)),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 2.0)),
                                 child: Text(
                                   "Sign In",
                                   style: GoogleFonts.poppins(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w700,
-                                    color: Color(0xff107793),
+                                    color: const Color(0xff107793),
                                   ),
                                 ),
                               ),

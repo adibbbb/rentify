@@ -38,7 +38,7 @@ class _SettingpageState extends State<Settingpage> {
             child: Container(
               width: 40,
               height: 40,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: Color(0xFF7ED8F1),
               ),
@@ -48,7 +48,7 @@ class _SettingpageState extends State<Settingpage> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back,
                     color: Colors.white,
                   ),
@@ -68,11 +68,12 @@ class _SettingpageState extends State<Settingpage> {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: Color.fromARGB(139, 61, 61, 61)
+                      color: const Color.fromARGB(139, 61, 61, 61)
                           .withOpacity(0.5), // Shadow color
                       spreadRadius: 2, // Spread radius
                       blurRadius: 4, // Blur radius
-                      offset: Offset(0, 2), // Offset in the x and y directions
+                      offset: const Offset(
+                          0, 2), // Offset in the x and y directions
                     )
                   ]),
               child: Center(
@@ -81,7 +82,7 @@ class _SettingpageState extends State<Settingpage> {
                   style: GoogleFonts.poppins(
                     fontSize: 22,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF16A6CC),
+                    color: const Color(0xFF16A6CC),
                   ),
                 ),
               ),
@@ -122,14 +123,14 @@ class _SettingpageState extends State<Settingpage> {
                         _MessagesEnabled = newValue;
                       });
                     },
-                    activeColor: Color(0xFF16A6CC),
+                    activeColor: const Color(0xFF16A6CC),
                     inactiveThumbColor: Colors.grey,
                   ),
                 ),
               ],
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 270, // Adjust the top position as needed
             left: 25,
             right: 31,
@@ -161,14 +162,14 @@ class _SettingpageState extends State<Settingpage> {
                         _PushNotifEnabled = newValue;
                       });
                     },
-                    activeColor: Color(0xFF16A6CC),
+                    activeColor: const Color(0xFF16A6CC),
                     inactiveThumbColor: Colors.grey,
                   ),
                 ),
               ],
             ),
           ), //END PUSH
-          Positioned(
+          const Positioned(
             top: 338, // Adjust the top position as needed
             left: 25,
             right: 31,
@@ -200,14 +201,14 @@ class _SettingpageState extends State<Settingpage> {
                         _PromotionsEnabled = newValue;
                       });
                     },
-                    activeColor: Color(0xFF16A6CC),
+                    activeColor: const Color(0xFF16A6CC),
                     inactiveThumbColor: Colors.grey,
                   ),
                 ),
               ],
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 406, // Adjust the top position as needed
             left: 25,
             right: 31,
@@ -254,16 +255,17 @@ class _SettingpageState extends State<Settingpage> {
                       height: 30.0,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color:
-                            _isChecked ? Color(0xFF16A6CC) : Color(0xFFC8EDF9),
+                        color: _isChecked
+                            ? const Color(0xFF16A6CC)
+                            : const Color(0xFFC8EDF9),
                         border: Border.all(
                           width: 1.0,
-                          color: Color(0xFF16A6CC),
+                          color: const Color(0xFF16A6CC),
                         ),
                       ),
                       child: Center(
                         child: _isChecked
-                            ? Icon(
+                            ? const Icon(
                                 Icons.check,
                                 size: 17.0,
                                 color: Colors.white,
@@ -277,7 +279,7 @@ class _SettingpageState extends State<Settingpage> {
               ],
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 535, // Adjust the top position as needed
             left: 25,
             right: 31,
@@ -315,16 +317,16 @@ class _SettingpageState extends State<Settingpage> {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: _isIndonesia
-                            ? Color(0xFF16A6CC)
-                            : Color(0xFFC8EDF9),
+                            ? const Color(0xFF16A6CC)
+                            : const Color(0xFFC8EDF9),
                         border: Border.all(
                           width: 1.0,
-                          color: Color(0xFF16A6CC),
+                          color: const Color(0xFF16A6CC),
                         ),
                       ),
                       child: Center(
                         child: _isIndonesia
-                            ? Icon(
+                            ? const Icon(
                                 Icons.check,
                                 size: 17.0,
                                 color: Colors.white,
@@ -338,7 +340,7 @@ class _SettingpageState extends State<Settingpage> {
               ],
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 604, // Adjust the top position as needed
             left: 25,
             right: 31,

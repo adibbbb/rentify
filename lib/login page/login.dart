@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 315,
                       ),
                       Center(
@@ -49,19 +49,19 @@ class _LoginPageState extends State<LoginPage> {
                                 color: Colors.black,
                               ),
                             ),
-                            SizedBox(height: 3),
+                            const SizedBox(height: 3),
                             Text(
                               "Login to access your account",
                               style: GoogleFonts.poppins(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w400,
-                                color: Color(0xFF888888),
+                                color: const Color(0xFF888888),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(height: 41),
+                      const SizedBox(height: 41),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(35, 12, 32, 0),
                         child: Text(
@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                           textAlign: TextAlign.start,
                           style: GoogleFonts.poppins(
                             fontSize: 12,
-                            color: Color(0xFF888888),
+                            color: const Color(0xFF888888),
                           ),
                         ),
                       ),
@@ -85,23 +85,23 @@ class _LoginPageState extends State<LoginPage> {
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor: Color(0xffC8EDF9),
+                                    fillColor: const Color(0xffC8EDF9),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                           width: 0.8,
                                           color:
                                               Color.fromARGB(209, 2, 214, 229)),
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         width: 0.8,
                                         color: Color(0xFF16A6CC),
                                       ),
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     hintText: 'rentify@gmail.com',
-                                    hintStyle: TextStyle(
+                                    hintStyle: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400,
                                         color: Color.fromARGB(165, 34, 34, 34)),
@@ -112,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ), // END TEXT FIELD EMAIL
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(35, 0, 32, 0),
                         child: Text(
@@ -120,11 +120,11 @@ class _LoginPageState extends State<LoginPage> {
                           textAlign: TextAlign.start,
                           style: GoogleFonts.poppins(
                             fontSize: 12,
-                            color: Color(0xFF888888),
+                            color: const Color(0xFF888888),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 12,
                       ),
                       Padding(
@@ -139,23 +139,23 @@ class _LoginPageState extends State<LoginPage> {
                                   obscureText: true,
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor: Color(0xffC8EDF9),
+                                    fillColor: const Color(0xffC8EDF9),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                           width: 0.8,
                                           color:
                                               Color.fromARGB(209, 2, 214, 229)),
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         width: 0.8,
                                         color: Color(0xFF16A6CC),
                                       ),
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     hintText: 'Enter your password',
-                                    hintStyle: TextStyle(
+                                    hintStyle: const TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400,
                                         color: Color.fromARGB(165, 34, 34, 34)),
@@ -166,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ), // END TEXT FIELD PASSWORD
-                      SizedBox(
+                      const SizedBox(
                           height: 14), // Add spacing between text and button
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -179,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return ForgetPassPage();
+                                      return const ForgetPassPage();
                                     },
                                   ),
                                 );
@@ -190,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                                 style: GoogleFonts.poppins(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600,
-                                  color: Color(0xff107793),
+                                  color: const Color(0xff107793),
                                 ),
                               ),
                             ),
@@ -212,7 +212,7 @@ class _LoginPageState extends State<LoginPage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return HomePage();
+                        return const HomePage();
                       },
                     ),
                   );
@@ -245,19 +245,19 @@ class _LoginPageState extends State<LoginPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return SignUpPage();
+                              return const SignUpPage();
                             },
                           ),
                         );
                       },
                       style: TextButton.styleFrom(
-                          padding: EdgeInsets.symmetric(horizontal: 2.0)),
+                          padding: const EdgeInsets.symmetric(horizontal: 2.0)),
                       child: Text(
                         "Sign Up",
                         style: GoogleFonts.poppins(
                           fontSize: 15,
                           fontWeight: FontWeight.w700,
-                          color: Color(0xff107793),
+                          color: const Color(0xff107793),
                         ),
                       ),
                     ),

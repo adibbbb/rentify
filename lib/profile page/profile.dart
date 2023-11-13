@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:rentify/button_nav_bar.dart';
 import 'package:rentify/login%20page/login.dart';
 import 'package:rentify/profile%20page/about_us.dart';
+import 'package:rentify/profile%20page/account.dart';
+import 'package:rentify/profile%20page/edit_profile.dart';
 import 'package:rentify/profile%20page/settings.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -44,7 +46,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Cinta Sang Diva',
+                    'Rentify Syahputra',
                     style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
@@ -52,7 +54,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   const Text(
-                    'csangdiva@gmail.com',
+                    'rentify@gmail.com',
                     style: TextStyle(
                       fontSize: 10, // Ukuran teks email
                       color: Colors.black, // Warna teks email
@@ -63,7 +65,13 @@ class ProfilePage extends StatelessWidget {
                     height: 17,
                   ),
                   ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EditProfile()),
+                        );
+                      },
                       style: const ButtonStyle(
                           backgroundColor:
                               MaterialStatePropertyAll(Color(0xff16A6CC))),
@@ -79,7 +87,11 @@ class ProfilePage extends StatelessWidget {
                     height: 37,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => (const AccountPage()),
+                      ));
+                    },
                     child: Container(
                       height: 52,
                       width: 320,

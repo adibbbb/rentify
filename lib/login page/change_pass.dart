@@ -19,7 +19,7 @@ class _ChangePassPageState extends State<ChangePassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF16A6CC),
+      backgroundColor: const Color(0xFF16A6CC),
       body: Form(
         key: _formKey,
         child: Stack(children: [
@@ -42,7 +42,7 @@ class _ChangePassPageState extends State<ChangePassPage> {
                       style: GoogleFonts.poppins(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
-                        color: Color(0xFF16A6CC),
+                        color: const Color(0xFF16A6CC),
                       ),
                       children: [
                         TextSpan(
@@ -51,7 +51,7 @@ class _ChangePassPageState extends State<ChangePassPage> {
                             height: 4,
                             fontWeight: FontWeight.w500,
                             fontSize: 14,
-                            color: Color(0xFF888888),
+                            color: const Color(0xFF888888),
                           ),
                         ),
                       ],
@@ -71,7 +71,7 @@ class _ChangePassPageState extends State<ChangePassPage> {
                         "New Password",
                         style: GoogleFonts.poppins(
                           fontSize: 12,
-                          color: Color(0xFF888888),
+                          color: const Color(0xFF888888),
                         ),
                       ),
                     ),
@@ -88,27 +88,27 @@ class _ChangePassPageState extends State<ChangePassPage> {
                                 obscureText: true,
                                 style: GoogleFonts.poppins(
                                   fontSize: 12,
-                                  color: Color.fromARGB(165, 34, 34, 34),
+                                  color: const Color.fromARGB(165, 34, 34, 34),
                                 ),
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: Color(0xffC8EDF9),
+                                  fillColor: const Color(0xffC8EDF9),
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.8,
                                       color: Color.fromARGB(209, 2, 214, 229),
                                     ),
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.8,
                                       color: Color(0xFF16A6CC),
                                     ),
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   hintText: 'Enter your password',
-                                  hintStyle: TextStyle(
+                                  hintStyle: const TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w400,
                                       color: Color.fromARGB(165, 34, 34, 34)),
@@ -133,7 +133,7 @@ class _ChangePassPageState extends State<ChangePassPage> {
                       "Confirm Password",
                       style: GoogleFonts.poppins(
                         fontSize: 12,
-                        color: Color(0xFF888888),
+                        color: const Color(0xFF888888),
                       ),
                     ),
                   ),
@@ -150,27 +150,27 @@ class _ChangePassPageState extends State<ChangePassPage> {
                               obscureText: true,
                               style: GoogleFonts.poppins(
                                 fontSize: 12,
-                                color: Color.fromARGB(165, 34, 34, 34),
+                                color: const Color.fromARGB(165, 34, 34, 34),
                               ),
                               decoration: InputDecoration(
                                 filled: true,
-                                fillColor: Color(0xffC8EDF9),
+                                fillColor: const Color(0xffC8EDF9),
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     width: 0.8,
                                     color: Color.fromARGB(209, 2, 214, 229),
                                   ),
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     width: 0.8,
                                     color: Color(0xFF16A6CC),
                                   ),
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 hintText: 'Enter your password',
-                                hintStyle: TextStyle(
+                                hintStyle: const TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w400,
                                     color: Color.fromARGB(165, 34, 34, 34)),
@@ -200,7 +200,7 @@ class _ChangePassPageState extends State<ChangePassPage> {
                       // Add your code to handle the password change here.
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => SuccessPage(),
+                          builder: (context) => const SuccessPage(),
                         ),
                       );
                     }

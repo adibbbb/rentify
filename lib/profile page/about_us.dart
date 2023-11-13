@@ -21,7 +21,7 @@ class AboutUsPage extends StatelessWidget {
             child: Container(
               width: 40,
               height: 40,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: Color(0xFF7ED8F1),
               ),
@@ -31,7 +31,7 @@ class AboutUsPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back,
                     color: Colors.white,
                   ),
@@ -51,11 +51,12 @@ class AboutUsPage extends StatelessWidget {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: Color.fromARGB(139, 61, 61, 61)
+                      color: const Color.fromARGB(139, 61, 61, 61)
                           .withOpacity(0.5), // Shadow color
                       spreadRadius: 2, // Spread radius
                       blurRadius: 4, // Blur radius
-                      offset: Offset(0, 2), // Offset in the x and y directions
+                      offset: const Offset(
+                          0, 2), // Offset in the x and y directions
                     )
                   ]),
               child: Center(
@@ -64,7 +65,7 @@ class AboutUsPage extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     fontSize: 22,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF16A6CC),
+                    color: const Color(0xFF16A6CC),
                   ),
                 ),
               ),
@@ -75,7 +76,7 @@ class AboutUsPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Align(
+                const Align(
                   alignment: Alignment.center,
                 ),
                 Image.asset(
@@ -83,7 +84,7 @@ class AboutUsPage extends StatelessWidget {
                   width: 164,
                   height: 33,
                 ),
-                Divider(
+                const Divider(
                   color: Color(0xFF16A6CC),
                   thickness: 2,
                   indent: 130,
@@ -96,12 +97,12 @@ class AboutUsPage extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: Color(0xFF16A6CC),
+                      color: const Color(0xFF16A6CC),
                     ),
                     textAlign: TextAlign.center, // Center-align the text
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 72,
                 ),
                 Image.asset(
@@ -109,7 +110,7 @@ class AboutUsPage extends StatelessWidget {
                   width: 175,
                   height: 70,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 65,
                 ),
                 Image.asset(
