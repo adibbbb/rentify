@@ -32,7 +32,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Forget Password",
+                    "Forgot Password",
                     style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,

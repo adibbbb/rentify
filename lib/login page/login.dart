@@ -186,7 +186,7 @@ class _LoginPageState extends State<LoginPage> {
                               },
                               style: TextButton.styleFrom(),
                               child: Text(
-                                "Forget Password?",
+                                "Forgot Password?",
                                 style: GoogleFonts.poppins(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600,
