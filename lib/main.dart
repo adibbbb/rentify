@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rentify/home%20page/home_page.dart';
+import 'package:rentify/home%20page/order_details.dart';
+import 'package:rentify/home%20page/order_form.dart';
 import 'package:rentify/home%20page/order_infomation.dart';
 import 'package:rentify/login%20page/login.dart';
 // import 'package:rentify/home%20page/home_page.dart';
@@ -29,6 +32,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: LoginPage());
+        home: OrderInformation());
   }
 }

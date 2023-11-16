@@ -14,25 +14,27 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     return Container(
       height: 75,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(40.0), // Sesuaikan sesuai kebutuhan
           topRight: Radius.circular(40.0), // Sesuaikan sesuai kebutuhan
         ),
-        color: Colors.transparent, // Atur warna latar belakang menjadi transparan
+        color:
+            Colors.transparent, // Atur warna latar belakang menjadi transparan
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20.0), // Sesuaikan sesuai kebutuhan
           topRight: Radius.circular(20.0), // Sesuaikan sesuai kebutuhan
         ),
         child: BottomNavigationBar(
-          backgroundColor: Color(0xff16A6CC), // Atur warna latar belakang BottomNavigationBar
+          backgroundColor: const Color(
+              0xff16A6CC), // Atur warna latar belakang BottomNavigationBar
           selectedItemColor: Colors.white,
-          unselectedItemColor: Color(0xff000000),
+          unselectedItemColor: const Color(0xff000000),
           currentIndex: currentIndex,
           onTap: (index) => setState(() => currentIndex = index),
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Beranda',

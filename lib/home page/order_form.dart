@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:rentify/home%20page/order_infomation.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 
@@ -11,11 +12,28 @@ class OrderForm extends StatefulWidget {
 }
 
 class OrderFormState extends State<OrderForm> {
-  String selectedDate =
+  String selectedPickupDate =
       "${DateTime.now().year.toString()}-${DateTime.now().month.toString().padLeft(2, '0')}-${DateTime.now().day.toString().padLeft(2, '0')}";
 
-  void changeVariableOnUI(DateTime date) {
-    setState(() => selectedDate = formatDateTime(date));
+  String selectedReturnDate =
+      "${DateTime.now().year.toString()}-${DateTime.now().month.toString().padLeft(2, '0')}-${DateTime.now().day.toString().padLeft(2, '0')}";
+
+  String pickupTime = DateFormat.jm().format(DateTime.now());
+
+  void onSelectedPickupDateChanged(DateTime date) {
+    setState(() => selectedPickupDate = formatDateTime(date));
+  }
+
+  void onSelectedReturnDateChanged(DateTime date) {
+    setState(() => selectedReturnDate = formatDateTime(date));
+  }
+
+  void onSelectedPickupTimeChanged(DateTime time) {
+    setState(() => pickupTime = formatTime(time));
+  }
+
+  String formatTime(DateTime time) {
+    return DateFormat.jm().format(time);
   }
 
   String formatDateTime(DateTime date) {
@@ -117,7 +135,7 @@ class OrderFormState extends State<OrderForm> {
                           DatePicker.showDatePicker(context,
                               showTitleActions: true,
                               minTime: DateTime.now(), onChanged: (date) {
-                            changeVariableOnUI(date);
+                            onSelectedPickupDateChanged(date);
                           },
                               onConfirm: (date) {},
                               currentTime: DateTime.now(),
@@ -132,7 +150,7 @@ class OrderFormState extends State<OrderForm> {
                                         showTitleActions: true,
                                         minTime: DateTime.now(),
                                         onChanged: (date) {
-                                      changeVariableOnUI(date);
+                                      onSelectedPickupDateChanged(date);
                                     },
                                         onConfirm: (date) {},
                                         currentTime: DateTime.now(),
@@ -140,7 +158,7 @@ class OrderFormState extends State<OrderForm> {
                                   },
                                   child: Text(
                                     textAlign: TextAlign.start,
-                                    selectedDate,
+                                    selectedReturnDate,
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
                                       fontSize: 10,
@@ -193,7 +211,7 @@ class OrderFormState extends State<OrderForm> {
                           DatePicker.showDatePicker(context,
                               showTitleActions: true,
                               minTime: DateTime.now(), onChanged: (date) {
-                            changeVariableOnUI(date);
+                            onSelectedReturnDateChanged(date);
                           },
                               onConfirm: (date) {},
                               currentTime: DateTime.now(),
@@ -210,7 +228,7 @@ class OrderFormState extends State<OrderForm> {
                                         showTitleActions: true,
                                         minTime: DateTime.now(),
                                         onChanged: (date) {
-                                      changeVariableOnUI(date);
+                                      onSelectedReturnDateChanged(date);
                                     },
                                         onConfirm: (date) {},
                                         currentTime: DateTime.now(),
@@ -218,7 +236,7 @@ class OrderFormState extends State<OrderForm> {
                                   },
                                   child: Text(
                                     textAlign: TextAlign.start,
-                                    selectedDate,
+                                    selectedPickupDate,
                                     overflow: TextOverflow.ellipsis,
                                     style: const TextStyle(
                                       fontSize: 10,
@@ -278,16 +296,15 @@ class OrderFormState extends State<OrderForm> {
                       child: TextButton(
                           onPressed: () {
                             DatePicker.showTime12hPicker(context,
-                                showTitleActions: true, onChanged: (date) {
-                              print('change $date in time zone ' +
-                                  date.timeZoneOffset.inHours.toString());
+                                showTitleActions: true, onChanged: (time) {
+                              onSelectedPickupTimeChanged(time);
                             }, onConfirm: (date) {
                               print('confirm $date');
                             }, currentTime: DateTime.now());
                           },
                           child: Text(
                             textAlign: TextAlign.start,
-                            selectedDate,
+                            pickupTime,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               fontSize: 10,
