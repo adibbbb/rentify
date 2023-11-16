@@ -651,8 +651,8 @@ class _EditProfileState extends State<EditProfile> {
                             Expanded(
                               child: IconButton(
                                 icon: Container(
-                                  width: 390, // Adjust the width as needed
-                                  height: 60, // Adjust the height as needed
+                                  width: 390, 
+                                  height: 60, 
                                   child: Image.asset(
                                     'asset/profile/select file.png',
                                     fit: BoxFit.contain,

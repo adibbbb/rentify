@@ -70,7 +70,7 @@ flutter:
     - asset/login/
     - asset/home/
     - asset/product/
-
+    - asset/admin/
     - asset/profile/
     - asset/transaction/
     
