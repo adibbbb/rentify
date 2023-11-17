@@ -35,6 +35,9 @@ class _AddProductState extends State<AddProduct> {
     }
   }
 
+  String? selectedValue = null;
+  final _dropdownFormKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,42 +121,50 @@ class _AddProductState extends State<AddProduct> {
                       ), // END SUB JUDUL 'BRAND'
                       const SizedBox(height: 10),
                       Container(
-  width: 327,
-  height: 48,
-  decoration: BoxDecoration(
-    borderRadius: BorderRadius.circular(20.0),
-    color: const Color(0xffC8EDF9),
-    border: Border.all(
-      color: Color(0xFF7ED8F1), // Set the border color
-      width: 1.0, // Set the border width
-    ),
-  ),
-  child: Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 16.0), // Adjust the horizontal padding as needed
-    child: DropdownButton<String>(
-      value: selectedBrand,
-      onChanged: (String? newValue) {
-        // Update the selected value
-        setState(() {
-          selectedBrand = newValue;
-        });
-      },
-      items: <String>[
-        'Honda',
-        'Hyundai',
-        'Mazda',
-        'Toyota',
-      ].map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-          
-        );
-      }).toList(),
-    ),
-  ),
-), // END CONTAINER DROPDOWN
-
+                        key: _dropdownFormKey,
+                        width: 327,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: const Color(0xffC8EDF9),
+                          border: Border.all(
+                            color:
+                                const Color(0xFF7ED8F1), // Set the border color
+                            width: 1.0, // Set the border width
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: DropdownButton<String>(
+                            hint: const Text("Select Brand: "),
+                            isExpanded: true,
+                            underline: const SizedBox(),
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black,
+                            ),
+                            value: selectedBrand,
+                            onChanged: (String? newValue) {
+                              // Update the selected value
+                              setState(() {
+                                selectedBrand = newValue;
+                              });
+                            },
+                            items: <String>[
+                              'Honda',
+                              'Hyundai',
+                              'Mazda',
+                              'Toyota',
+                            ].map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ), // END CONTAINER DROPDOWN
 
                       Padding(
                         padding: const EdgeInsets.fromLTRB(5, 12, 32, 0),
@@ -173,28 +184,41 @@ class _AddProductState extends State<AddProduct> {
                           borderRadius: BorderRadius.circular(20.0),
                           color: const Color(0xffC8EDF9),
                           border: Border.all(
-                            color: Color(0xFF7ED8F1), // Set the border color
+                            color:
+                                const Color(0xFF7ED8F1), // Set the border color
                             width: 1.0, // Set the border width
                           ),
                         ),
-                        child: DropdownButton<String>(
-                          value: selectedTransmission,
-                          onChanged: (String? newValue) {
-                            // Update the selected value
-                            setState(() {
-                              selectedTransmission = newValue;
-                            });
-                          },
-                          items: <String>[
-                            'Manual',
-                            'Matic',
-                          ].map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                            
-                          }).toList(),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal:
+                                  16.0), // Adjust the horizontal padding as needed
+                          child: DropdownButton<String>(
+                            hint: const Text("Select Transmission : "),
+                            isExpanded: true,
+                            underline: const SizedBox(),
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black,
+                            ),
+                            value: selectedTransmission,
+                            onChanged: (String? newValue) {
+                              // Update the selected value
+                              setState(() {
+                                selectedTransmission = newValue;
+                              });
+                            },
+                            items: <String>[
+                              'Matic',
+                              'Manual',
+                            ].map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          ),
                         ),
                       ), //END CONTAINER DROPDOWN
 
@@ -216,28 +240,41 @@ class _AddProductState extends State<AddProduct> {
                           borderRadius: BorderRadius.circular(20.0),
                           color: const Color(0xffC8EDF9),
                           border: Border.all(
-                            color: Color(0xFF7ED8F1), // Set the border color
+                            color:
+                                const Color(0xFF7ED8F1), // Set the border color
                             width: 1.0, // Set the border width
                           ),
                         ),
-                        child: DropdownButton<String>(
-                          value: selectedSeat,
-                          onChanged: (String? newValue) {
-                            // Update the selected value
-                            setState(() {
-                              selectedSeat = newValue;
-                            });
-                          },
-                          items: <String>[
-                            '4 Seat',
-                            '6 Seat',
-                            '8 Seat',
-                          ].map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal:
+                                  16.0), // Adjust the horizontal padding as needed
+                          child: DropdownButton<String>(
+                            hint: const Text("Select Seat : "),
+                            isExpanded: true,
+                            underline: const SizedBox(),
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black,
+                            ),
+                            value: selectedSeat,
+                            onChanged: (String? newValue) {
+                              // Update the selected value
+                              setState(() {
+                                selectedSeat = newValue;
+                              });
+                            },
+                            items: <String>[
+                              '1-4 Seats',
+                              '1-8 Seats',
+                            ].map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          ),
                         ),
                       ), //END CONTAINER DROPDOWN
 
@@ -276,7 +313,7 @@ class _AddProductState extends State<AddProduct> {
                               ),
                               borderRadius: BorderRadius.circular(20.0),
                             ),
-                            hintText: 'Rp300.000',
+                            hintText: 'Rp. 300.000',
                             hintStyle: GoogleFonts.poppins(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,
@@ -297,19 +334,14 @@ class _AddProductState extends State<AddProduct> {
                       ), //END SUB JUDUL 'BRAND'
 
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(35, 0, 32, 0),
+                        padding: const EdgeInsets.fromLTRB(1, 2, 1, 0),
                         child: SizedBox(
-                          height: 65,
-                          width: 3000,
                           child: Row(
                             children: [
                               Expanded(
                                 child: IconButton(
-                                  icon: Container(
-                                    child: Image.asset(
-                                      'asset/profile/select file.png',
-                                      fit: BoxFit.contain,
-                                    ),
+                                  icon: Image.asset(
+                                    'asset/profile/select file.png',
                                   ),
                                   onPressed: _pickFile,
                                 ),

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rentify/admin%20page/addproduct.dart';
-import 'package:rentify/home%20page/order_form.dart';
-import 'package:rentify/profile%20page/edit_profile.dart';
-
+import 'splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +19,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: OrderForm());
+        home: LauncherPage());
   }
 }
