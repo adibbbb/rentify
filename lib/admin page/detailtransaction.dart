@@ -125,7 +125,91 @@ class DetailTransaction extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(
+                width: 16,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 385),
+                child: Image.asset(
+                  'asset/admin/divider.png',
+                  width: 4,
+                  height: 10,
+                ),
+              ),
+              SizedBox(
+                width: 16,
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 385, 0, 0),
+                child: Row(
+                  children: [
+                    Text(
+                      "adibb6776@gmail.com",
+                      style: GoogleFonts.poppins(
+                        fontSize: 8,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xFF1A202C),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 385),
+                child: InkWell(
+                  onTap: () {
+                    Clipboard.setData(
+                        const ClipboardData(text: "adibb6776@gmail.com"));
+                  },
+                  child: Row(
+                    children: [
+                      const SizedBox(width: 8),
+                      Image.asset(
+                        'asset/admin/logo copy.png',
+                        width: 10,
+                        height: 10,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(46, 446, 37, 0),
+            child: Text(
+              "This user already suitable with system procedures, accept for rent?",
+              style: GoogleFonts.poppins(
+                fontSize: 9,
+                fontWeight: FontWeight.w600,
+                color: const Color(0xFF1A9E50),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 50, top: 495, right: 50),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: Image.asset(
+                    'asset/admin/accept.png',
+                    width: 102,
+                    height: 26,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: Image.asset(
+                    'asset/admin/reject.png',
+                    width: 102,
+                    height: 26,
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),

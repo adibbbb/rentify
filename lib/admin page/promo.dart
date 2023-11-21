@@ -48,34 +48,10 @@ class _PromoPageState extends State<PromoPage> {
             ),
           ), // END TITLE
 
-          // Add ListView here
           Padding(
             padding: const EdgeInsets.fromLTRB(55, 170, 55, 287),
             child: ListView(
               children: [
-                Container(
-                  width: 280,
-                  height: 146,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(14.0),
-                    border: Border.all(
-                      color: const Color(0xFF16A6CC),
-                      width: 1,
-                    ),
-                  ),
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.add,
-                      size: 38,
-                      color: Color(0xFF16A6CC),
-                    ),
-                    onPressed: _pickFile,
-                  ),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
                 Stack(children: [
                   Padding(
                     padding: const EdgeInsets.only(
@@ -95,13 +71,13 @@ class _PromoPageState extends State<PromoPage> {
                     ),
                   ),
                   Positioned(
-                    top: -8,
-                    right: -4,
+                    top: 14,
+                    right: 5,
                     child: IconButton(
                         onPressed: () {}, // X kalo ngapus pencet ini
                         icon: Image.asset(
                           'asset/admin/x.png',
-                          width: 22,
+                          width: 14,
                         )),
                   ),
                 ]),
@@ -146,7 +122,7 @@ class _PromoPageState extends State<PromoPage> {
                 onPressed: () {},
                 icon: Image.asset(
                   'asset/admin/add promo.png',
-                ), // Replace with the path to your image asset.
+                ),
               ),
             ),
           ),
