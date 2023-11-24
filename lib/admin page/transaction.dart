@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rentify/admin%20page/detailtransaction.dart';
+import 'package:rentify/navbaradmin.dart';
 
 class TransactionPage extends StatefulWidget {
   const TransactionPage({super.key});
@@ -12,9 +14,35 @@ class _TransactionPageState extends State<TransactionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      bottomNavigationBar: const NavbarAdmin(),
       backgroundColor: Colors.white,
       body: Stack(
         children: [
+          Positioned(
+            top: 40.0,
+            left: 27.0,
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Color(0xFF7ED8F1),
+              ),
+              child: Align(
+                alignment: Alignment.center,
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.fromLTRB(31, 100, 0, 0),
             child: Text(
@@ -41,7 +69,7 @@ class _TransactionPageState extends State<TransactionPage> {
 
           Padding(
             padding: const EdgeInsets.only(
-                top: 213, left: 33, bottom: 400, right: 32),
+                top: 213, left: 33, bottom: 340, right: 32),
             child: ListView(
               children: [
                 Container(
@@ -76,7 +104,8 @@ class _TransactionPageState extends State<TransactionPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 18, left: 25),
+                                padding:
+                                    const EdgeInsets.only(top: 18, left: 25),
                                 child: Text(
                                   'All New Terios',
                                   style: GoogleFonts.poppins(
@@ -195,7 +224,8 @@ class _TransactionPageState extends State<TransactionPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 18, left: 25),
+                                padding:
+                                    const EdgeInsets.only(top: 18, left: 25),
                                 child: Text(
                                   'Agya',
                                   style: GoogleFonts.poppins(
@@ -265,7 +295,14 @@ class _TransactionPageState extends State<TransactionPage> {
                           Padding(
                             padding: const EdgeInsets.only(top: 8),
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          DetailTransaction()),
+                                );
+                              },
                               child: Image.asset(
                                 'asset/admin/confirm.png',
                                 width: 102,
@@ -314,7 +351,8 @@ class _TransactionPageState extends State<TransactionPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 18, left: 25),
+                                padding:
+                                    const EdgeInsets.only(top: 18, left: 25),
                                 child: Text(
                                   'Avanza',
                                   style: GoogleFonts.poppins(
@@ -418,11 +456,9 @@ class _TransactionPageState extends State<TransactionPage> {
           ),
           Padding(
             padding: const EdgeInsets.only(
-                top: 486, left: 33, bottom: 130, right: 32),
+                top: 486, left: 33, bottom: 50, right: 32),
             child: ListView(
               children: [
-               
-
                 // const SizedBox(height: 12),
                 Container(
                   width: 314,
@@ -446,70 +482,71 @@ class _TransactionPageState extends State<TransactionPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [Column(
-                       mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(padding: const EdgeInsets.only(top: 18, left: 25),
-                        child: Text(
-                                  'All New Terios',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                        ),
-                        Padding(
-                                padding: const EdgeInsets.only(left: 25),
-                                child: Text(
-                                  'Rent from 29 Aug - 30 Aug',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 8,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ),
-                      ],
-                    ),
-                    // DIVIDER MASUK ROW
-                          const SizedBox(width: 15),
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 22),
-                            child: Image.asset(
-                              'asset/admin/divider biru.png',
-                              width: 4,
-                              height: 24,
-                            ),
-                          ),
-
-                          
-                          const SizedBox(width: 13),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 29),
+                            padding: const EdgeInsets.only(top: 18, left: 25),
                             child: Text(
-                              'adibb2123',
+                              'All New Terios',
                               style: GoogleFonts.poppins(
-                                fontSize: 8,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.black,
                               ),
                             ),
                           ),
-
-                           const SizedBox(width: 30),
                           Padding(
-                            padding: const EdgeInsets.only(top: 25),
+                            padding: const EdgeInsets.only(left: 25),
                             child: Text(
-                              'Ends Today',
+                              'Rent from 29 Aug - 30 Aug',
                               style: GoogleFonts.poppins(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.red,
+                                fontSize: 8,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.grey,
                               ),
                             ),
                           ),
+                        ],
+                      ),
+                      // DIVIDER MASUK ROW
+                      const SizedBox(width: 15),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 22),
+                        child: Image.asset(
+                          'asset/admin/divider biru.png',
+                          width: 4,
+                          height: 24,
+                        ),
+                      ),
+
+                      const SizedBox(width: 13),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 29),
+                        child: Text(
+                          'adibb2123',
+                          style: GoogleFonts.poppins(
+                            fontSize: 8,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(width: 30),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25),
+                        child: Text(
+                          'Ends Today',
+                          style: GoogleFonts.poppins(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ), // END CONTAINER
@@ -536,70 +573,71 @@ class _TransactionPageState extends State<TransactionPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [Column(
-                       mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(padding: const EdgeInsets.only(top: 18, left: 25),
-                        child: Text(
-                                  'All New Rush',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                        ),
-                        Padding(
-                                padding: const EdgeInsets.only(left: 25),
-                                child: Text(
-                                  'Rent from 29 Aug - 30 Aug',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 8,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ),
-                      ],
-                    ),
-                    // DIVIDER MASUK ROW
-                          const SizedBox(width: 15),
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 22),
-                            child: Image.asset(
-                              'asset/admin/divider biru.png',
-                              width: 4,
-                              height: 24,
+                            padding: const EdgeInsets.only(top: 18, left: 25),
+                            child: Text(
+                              'All New Rush',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
-
-                          
-                          const SizedBox(width: 13),
                           Padding(
-                            padding: const EdgeInsets.only(top: 29),
+                            padding: const EdgeInsets.only(left: 25),
                             child: Text(
-                              'adibb2123',
+                              'Rent from 29 Aug - 30 Aug',
                               style: GoogleFonts.poppins(
                                 fontSize: 8,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.grey,
                               ),
                             ),
                           ),
+                        ],
+                      ),
+                      // DIVIDER MASUK ROW
+                      const SizedBox(width: 15),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 22),
+                        child: Image.asset(
+                          'asset/admin/divider biru.png',
+                          width: 4,
+                          height: 24,
+                        ),
+                      ),
 
-                           const SizedBox(width: 30),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 25),
-                            child: Text(
-                              'Ends in 1 day',
-                              style: GoogleFonts.poppins(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
-                              ),
-                            ),
+                      const SizedBox(width: 13),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 29),
+                        child: Text(
+                          'adibb2123',
+                          style: GoogleFonts.poppins(
+                            fontSize: 8,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
                           ),
+                        ),
+                      ),
+
+                      const SizedBox(width: 30),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25),
+                        child: Text(
+                          'Ends in 1 day',
+                          style: GoogleFonts.poppins(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ), // END CONTAINER
@@ -627,70 +665,71 @@ class _TransactionPageState extends State<TransactionPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [Column(
-                       mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(padding: const EdgeInsets.only(top: 18, left: 25),
-                        child: Text(
-                                  'Agya 2023',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                        ),
-                        Padding(
-                                padding: const EdgeInsets.only(left: 25),
-                                child: Text(
-                                  'Rent from 29 Aug - 30 Aug',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 8,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ),
-                      ],
-                    ),
-                    // DIVIDER MASUK ROW
-                          const SizedBox(width: 15),
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 22),
-                            child: Image.asset(
-                              'asset/admin/divider biru.png',
-                              width: 4,
-                              height: 24,
+                            padding: const EdgeInsets.only(top: 18, left: 25),
+                            child: Text(
+                              'Agya 2023',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
-
-                          
-                          const SizedBox(width: 13),
                           Padding(
-                            padding: const EdgeInsets.only(top: 29),
+                            padding: const EdgeInsets.only(left: 25),
                             child: Text(
-                              'adibb2123',
+                              'Rent from 29 Aug - 30 Aug',
                               style: GoogleFonts.poppins(
                                 fontSize: 8,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.grey,
                               ),
                             ),
                           ),
+                        ],
+                      ),
+                      // DIVIDER MASUK ROW
+                      const SizedBox(width: 15),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 22),
+                        child: Image.asset(
+                          'asset/admin/divider biru.png',
+                          width: 4,
+                          height: 24,
+                        ),
+                      ),
 
-                           const SizedBox(width: 30),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 25),
-                            child: Text(
-                              'Ends in 2 day',
-                              style: GoogleFonts.poppins(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
-                              ),
-                            ),
+                      const SizedBox(width: 13),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 29),
+                        child: Text(
+                          'adibb2123',
+                          style: GoogleFonts.poppins(
+                            fontSize: 8,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
                           ),
+                        ),
+                      ),
+
+                      const SizedBox(width: 30),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25),
+                        child: Text(
+                          'Ends in 2 day',
+                          style: GoogleFonts.poppins(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ), // END CONTAINER
@@ -717,78 +756,74 @@ class _TransactionPageState extends State<TransactionPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [Column(
-                       mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(padding: const EdgeInsets.only(top: 18, left: 25),
-                        child: Text(
-                                  'Agya 2023',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                        ),
-                        Padding(
-                                padding: const EdgeInsets.only(left: 25),
-                                child: Text(
-                                  'Rent from 29 Aug - 30 Aug',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 8,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ),
-                      ],
-                    ),
-                    // DIVIDER MASUK ROW
-                          const SizedBox(width: 15),
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 22),
-                            child: Image.asset(
-                              'asset/admin/divider biru.png',
-                              width: 4,
-                              height: 24,
+                            padding: const EdgeInsets.only(top: 18, left: 25),
+                            child: Text(
+                              'Agya 2023',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
-
-                          
-                          const SizedBox(width: 13),
                           Padding(
-                            padding: const EdgeInsets.only(top: 29),
+                            padding: const EdgeInsets.only(left: 25),
                             child: Text(
-                              'adibb2123',
+                              'Rent from 29 Aug - 30 Aug',
                               style: GoogleFonts.poppins(
                                 fontSize: 8,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.grey,
                               ),
                             ),
                           ),
+                        ],
+                      ),
+                      // DIVIDER MASUK ROW
+                      const SizedBox(width: 15),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 22),
+                        child: Image.asset(
+                          'asset/admin/divider biru.png',
+                          width: 4,
+                          height: 24,
+                        ),
+                      ),
 
-                           const SizedBox(width: 30),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 25),
-                            child: Text(
-                              'Ends in 2 day',
-                              style: GoogleFonts.poppins(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
-                              ),
-                            ),
+                      const SizedBox(width: 13),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 29),
+                        child: Text(
+                          'adibb2123',
+                          style: GoogleFonts.poppins(
+                            fontSize: 8,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
                           ),
+                        ),
+                      ),
+
+                      const SizedBox(width: 30),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25),
+                        child: Text(
+                          'Ends in 2 day',
+                          style: GoogleFonts.poppins(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ), // END CONTAINER
-
-
-
-               
-                
               ],
             ),
           )
