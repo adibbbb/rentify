@@ -46,6 +46,7 @@ dependencies:
   flutter_datetime_picker_plus: ^2.1.0
   file_picker: ^6.1.1
   intl: ^0.18.1
+  collection: ^1.17.2
  
 
 
@@ -73,6 +74,10 @@ flutter:
     - asset/admin/
     - asset/profile/
     - asset/transaction/
+    - asset/mobil/
+
+    
+    
     
 
 

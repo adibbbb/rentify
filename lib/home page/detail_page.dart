@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rentify/home%20page/home_page.dart';
+import 'package:rentify/Models/mobil_data.dart';
 import 'package:rentify/home%20page/order_form.dart';
 
 class DetailPage extends StatelessWidget {
-  final KatalogMobil mobil;
+  final Mobil mobil;
 
   const DetailPage({
     Key? key,
@@ -68,21 +68,21 @@ class DetailPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(36, 310, 40, 0),
             child: RichText(
-              text: const TextSpan(
+              text: TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Rp450.000',
-                    style: TextStyle(
+                    text: mobil.harga,
+                    style: const TextStyle(
                       fontFamily: 'asset/fonts/Poppins-SemiBold.ttf',
                       fontWeight: FontWeight.w600,
                       color: Colors.green,
                       fontSize: 28,
                     ),
                   ),
-                  WidgetSpan(
+                  const WidgetSpan(
                     child: SizedBox(width: 5),
                   ),
-                  TextSpan(
+                  const TextSpan(
                     text: '/day',
                     style: TextStyle(
                       fontFamily: 'asset/fonts/Poppins-Regular.ttf',
@@ -132,8 +132,8 @@ class DetailPage extends StatelessWidget {
                               width: 32,
                               height: 32,
                             ),
-                            SizedBox(width: 8),
-                            Text('1-7 Passengers',
+                            const SizedBox(width: 8),
+                            Text(mobil.penumpang,
                                 style: GoogleFonts.poppins(
                                     fontSize: 10, fontWeight: FontWeight.w500)),
                           ],
@@ -147,8 +147,8 @@ class DetailPage extends StatelessWidget {
                               width: 32,
                               height: 32,
                             ),
-                            SizedBox(width: 8),
-                            Text('1.300 cc',
+                            const SizedBox(width: 8),
+                            Text(mobil.cc,
                                 style: GoogleFonts.poppins(
                                     fontSize: 10, fontWeight: FontWeight.w500)),
                           ],
@@ -170,8 +170,8 @@ class DetailPage extends StatelessWidget {
                               width: 32,
                               height: 32,
                             ),
-                            SizedBox(width: 8),
-                            Text('70 L',
+                            const SizedBox(width: 8),
+                            Text(mobil.bensin,
                                 style: GoogleFonts.poppins(
                                     fontSize: 10, fontWeight: FontWeight.w500)),
                           ],
@@ -185,8 +185,8 @@ class DetailPage extends StatelessWidget {
                               width: 32,
                               height: 32,
                             ),
-                            SizedBox(width: 8),
-                            Text('Automatic',
+                            const SizedBox(width: 8),
+                            Text(mobil.transmisi,
                                 style: GoogleFonts.poppins(
                                     fontSize: 10, fontWeight: FontWeight.w500)),
                           ],
@@ -238,7 +238,7 @@ class DetailPage extends StatelessWidget {
                   width: 20,
                   height: 20,
                 ),
-                SizedBox(width: 14),
+                const SizedBox(width: 14),
                 Text(
                   "24 hour emergency call",
                   style: GoogleFonts.poppins(
@@ -258,7 +258,7 @@ class DetailPage extends StatelessWidget {
                   width: 20,
                   height: 20,
                 ),
-                SizedBox(width: 14),
+                const SizedBox(width: 14),
                 Text(
                   "Breakdown replacement car",
                   style: GoogleFonts.poppins(
@@ -279,7 +279,7 @@ class DetailPage extends StatelessWidget {
                   width: 20,
                   height: 20,
                 ),
-                SizedBox(width: 14),
+                const SizedBox(width: 14),
                 Text(
                   "Life insurance",
                   style: GoogleFonts.poppins(
@@ -320,7 +320,7 @@ class DetailPage extends StatelessWidget {
                   width: 20,
                   height: 20,
                 ),
-                SizedBox(width: 14),
+                const SizedBox(width: 14),
                 Text(
                   "Identification card required",
                   style: GoogleFonts.poppins(
@@ -340,7 +340,7 @@ class DetailPage extends StatelessWidget {
                   width: 20,
                   height: 20,
                 ),
-                SizedBox(width: 14),
+                const SizedBox(width: 14),
                 Text(
                   "Fuel, Toll, and Parking Fee not included",
                   style: GoogleFonts.poppins(
@@ -361,7 +361,7 @@ class DetailPage extends StatelessWidget {
                   width: 20,
                   height: 20,
                 ),
-                SizedBox(width: 14),
+                const SizedBox(width: 14),
                 Text(
                   "Not for out town drop off",
                   style: GoogleFonts.poppins(
@@ -381,7 +381,7 @@ class DetailPage extends StatelessWidget {
                   width: 20,
                   height: 20,
                 ),
-                SizedBox(width: 14),
+                const SizedBox(width: 14),
                 Text(
                   "Couldn’t select odd/event plate number",
                   style: GoogleFonts.poppins(
@@ -398,7 +398,7 @@ class DetailPage extends StatelessWidget {
             child: IconButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return OrderForm();
+                    return const OrderForm();
                   }));
                 },
                 icon: Image.asset('asset/product/next.png')),

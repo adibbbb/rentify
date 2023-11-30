@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rentify/button_nav_bar.dart';
+import 'package:rentify/login%20page/login.dart';
 import 'splash_screen.dart';
 
 void main() {
@@ -19,6 +21,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: LauncherPage());
+        home: BottomNavBar());
   }
 }

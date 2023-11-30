@@ -292,7 +292,7 @@ class OrderFormState extends State<OrderForm> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
-                      padding: EdgeInsets.only(left: 8),
+                      padding: const EdgeInsets.only(left: 8),
                       child: TextButton(
                           onPressed: () {
                             DatePicker.showTime12hPicker(context,

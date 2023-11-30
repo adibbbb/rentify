@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rentify/button_nav_bar.dart';
 import 'package:rentify/login%20page/login.dart';
 import 'package:rentify/profile%20page/about_us.dart';
 import 'package:rentify/profile%20page/account.dart';
@@ -13,7 +12,6 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BottomNavBar(),
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
