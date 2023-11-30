@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:rentify/admin%20page/transaction.dart';
-import 'package:rentify/navbaradmin.dart';
+import 'package:rentify/admin%20page/navbaradmin.dart';
 
 class PromoPage extends StatefulWidget {
   const PromoPage({Key? key});
@@ -36,34 +36,10 @@ class _PromoPageState extends State<PromoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      bottomNavigationBar: const NavbarAdmin(),
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          Positioned(
-            top: 40.0,
-            left: 27.0,
-            child: Container(
-              width: 40,
-              height: 40,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color(0xFF7ED8F1),
-              ),
-              child: Align(
-                alignment: Alignment.center,
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          
           Padding(
             padding: const EdgeInsets.fromLTRB(31, 100, 0, 0),
             child: Text(
@@ -148,10 +124,7 @@ class _PromoPageState extends State<PromoPage> {
               padding: const EdgeInsets.fromLTRB(35, 600, 32, 0),
               child: IconButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => TransactionPage()),
-                  );
+                
                 },
                 icon: Image.asset(
                   'asset/admin/add promo.png',

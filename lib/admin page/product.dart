@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rentify/admin%20page/addproduct.dart';
-import 'package:rentify/navbaradmin.dart';
+import 'package:rentify/admin%20page/navbaradmin.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key});
@@ -15,7 +15,6 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        bottomNavigationBar: const NavbarAdmin(),
         body: Stack(
           children: [
             Padding(
@@ -31,7 +30,7 @@ class _ProductPageState extends State<ProductPage> {
             ), // END TITLE
 
             Padding(
-              padding: const EdgeInsets.fromLTRB(55, 170, 55, 130),
+              padding: const EdgeInsets.fromLTRB(55, 170, 55, 40),
               child: ListView(
                 children: [
                   Container(

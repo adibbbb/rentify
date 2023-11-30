@@ -12,7 +12,7 @@ class NavbarAdmin extends StatefulWidget {
 
 class _NavbarAdminState extends State<NavbarAdmin> {
   int currentIndexx = 0;
-  final screens = [
+  final Pages = [
     ProductPage(),
     TransactionPage(),
     PromoPage(),
@@ -20,12 +20,14 @@ class _NavbarAdminState extends State<NavbarAdmin> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+      body: Pages[currentIndexx],
+      bottomNavigationBar: Container(
         height: 75,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(45.0),
-            topRight: Radius.circular(45.0),
+            topLeft: Radius.circular(40.0),
+            topRight: Radius.circular(40.0),
           ),
           color: Colors.transparent,
         ),
@@ -37,10 +39,8 @@ class _NavbarAdminState extends State<NavbarAdmin> {
           child: BottomNavigationBar(
             backgroundColor: const Color(0xff16A6CC),
             selectedItemColor: Colors.white,
-            showUnselectedLabels: false,
             unselectedItemColor: const Color(0xff000000),
             currentIndex: currentIndexx,
-            onTap: (index) => setState(() => currentIndexx = index),
             items: const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.car_rental_outlined),
@@ -55,7 +55,10 @@ class _NavbarAdminState extends State<NavbarAdmin> {
                 label: 'Promo',
               ),
             ],
+            onTap: (index) => setState(() => currentIndexx = index),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
