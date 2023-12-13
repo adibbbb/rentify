@@ -97,7 +97,7 @@ class _HomePageeState extends State<HomePagee> {
                       borderSide:
                           const BorderSide(width: 1, color: Color(0xff16A6CC)),
                     ),
-                    hintText: 'Cari Mobil Apa Hari Ini',
+                    hintText: 'Find Your Car',
                     hintStyle: const TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 12,

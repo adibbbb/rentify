@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rentify/button_nav_bar.dart';
 import 'package:rentify/home%20page/HomePagee.dart';
 import 'package:rentify/login%20page/sign_up.dart';
-import 'package:rentify/login page/forget_password.dart';
+import 'package:rentify/login%20page/forget_password.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -14,6 +16,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -206,20 +210,43 @@ class _LoginPageState extends State<LoginPage> {
           Center(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(35, 580, 28, 0),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return HomePagee();
+              child: MaterialButton(
+                onPressed: () async {
+                  try {
+                    // Mencoba untuk mengautentikasi pengguna
+                    await _auth.signInWithEmailAndPassword(
+                        email: emailController.text,
+                        password: passwordController.text);
+
+                    // Jika berhasil, pindahkan ke halaman beranda
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BottomNavBar(),
+                      ),
+                    );
+                  } catch (e) {
+                    // Jika ada kesalahan, tampilkan pesan kesalahan
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text("Login Failed"),
+                          content: Text("Invalid email or password."),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("OK"),
+                            ),
+                          ],
+                        );
                       },
-                    ),
-                  );
+                    );
+                  }
                 },
-                icon: Image.asset(
-                  'asset/login/login button.png',
-                ), // Replace with the path to your image asset.
+                child: Image.asset('asset/login/login button.png'),
               ),
             ),
           ),

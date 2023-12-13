@@ -45,15 +45,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
             items: const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                label: 'Beranda',
+                label: 'Home',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.schedule),
-                label: 'Transaksi',
+                label: 'Transaction',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.person),
-                label: 'Profil',
+                label: 'Profile',
               ),
             ],
             onTap: (index) => setState(() => currentIndex = index),
