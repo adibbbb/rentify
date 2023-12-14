@@ -24,8 +24,7 @@ class _SignUpPageState extends State<SignUpPage> {
       if (_formKey.currentState?.validate() ?? false) {
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
-                email: emailController.text,
-                password: passwordController.text);
+                email: emailController.text, password: passwordController.text);
 
         // Menyimpan data pengguna ke Firebase Realtime Database
         await saveUserDataToFirebase(userCredential.user);
@@ -46,17 +45,18 @@ class _SignUpPageState extends State<SignUpPage> {
   // Fungsi untuk menyimpan data pengguna ke Firebase Realtime Database
   Future<void> saveUserDataToFirebase(User? user) async {
     if (user != null) {
-      final DatabaseReference databaseReference = FirebaseDatabase.instance.reference().child('users');
+      final DatabaseReference databaseReference =
+          FirebaseDatabase.instance.ref().child('users');
 
       // Mendapatkan timestamp saat ini
       final int timestamp = DateTime.now().millisecondsSinceEpoch;
 
       await databaseReference.child(user.uid).set({
-        'uid': user.uid,  // Menyimpan user ID
+        'uid': user.uid, // Menyimpan user ID
         'firstName': firstNameController.text,
         'lastName': lastNameController.text,
         'email': user.email,
-        'dt': timestamp,  // Menyimpan timestamp
+        'dt': timestamp, // Menyimpan timestamp
         // Tambahkan kolom lain sesuai kebutuhan
       });
     }
@@ -296,8 +296,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                   ),
                                   SizedBox(height: 5),
                                   Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(35, 12, 32, 0),
+                                    padding: const EdgeInsets.fromLTRB(
+                                        35, 12, 32, 0),
                                     child: SizedBox(
                                       height: 45,
                                       child: Row(
@@ -317,8 +317,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                                     const Color(0xffC8EDF9),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide:
-                                                      const BorderSide(
+                                                  borderSide: const BorderSide(
                                                     width: 0.8,
                                                     color: Color.fromARGB(
                                                         209, 2, 214, 229),
@@ -329,8 +328,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide:
-                                                      const BorderSide(
+                                                  borderSide: const BorderSide(
                                                     width: 0.8,
                                                     color: Color(0xFF16A6CC),
                                                   ),
@@ -338,8 +336,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                                       BorderRadius.circular(
                                                           20.0),
                                                 ),
-                                                hintText:
-                                                    'Enter your password',
+                                                hintText: 'Enter your password',
                                                 hintStyle: const TextStyle(
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w400,
@@ -393,31 +390,24 @@ class _SignUpPageState extends State<SignUpPage> {
                                               filled: true,
                                               fillColor:
                                                   const Color(0xffC8EDF9),
-                                              enabledBorder:
-                                                  OutlineInputBorder(
-                                                borderSide:
-                                                    const BorderSide(
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: const BorderSide(
                                                   width: 0.8,
                                                   color: Color.fromARGB(
                                                       209, 2, 214, 229),
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(
-                                                        20.0),
+                                                    BorderRadius.circular(20.0),
                                               ),
-                                              focusedBorder:
-                                                  OutlineInputBorder(
-                                                borderSide:
-                                                    const BorderSide(
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: const BorderSide(
                                                   width: 0.8,
                                                   color: Color(0xFF16A6CC),
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(
-                                                        20.0),
+                                                    BorderRadius.circular(20.0),
                                               ),
-                                              hintText:
-                                                  'Enter your password',
+                                              hintText: 'Enter your password',
                                               hintStyle: const TextStyle(
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w400,
@@ -444,8 +434,8 @@ class _SignUpPageState extends State<SignUpPage> {
                               padding: const EdgeInsets.fromLTRB(32, 40, 31, 0),
                               child: MaterialButton(
                                 onPressed: _register,
-                                child:
-                                    Image.asset('asset/login/sign up button.png'),
+                                child: Image.asset(
+                                    'asset/login/sign up button.png'),
                               ),
                             ),
                             Center(

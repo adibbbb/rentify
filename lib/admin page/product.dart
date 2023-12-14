@@ -1,5 +1,9 @@
+import 'dart:convert';
+
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rentify/Models/mobil_data.dart';
 import 'package:rentify/admin%20page/addproduct.dart';
 import 'package:rentify/admin%20page/navbaradmin.dart';
 
@@ -11,6 +15,32 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
+  final DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
+  List<Mobil> mobileDataList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    DataSnapshot dataSnapshot = await databaseReference.child('mobils').get();
+
+    mobileDataList.clear();
+
+    if (dataSnapshot.value != null && dataSnapshot.value is Map) {
+      Map<String, dynamic> mobilsData =
+          dataSnapshot.value as Map<String, dynamic>;
+
+      mobilsData.forEach((key, value) {
+        mobileDataList.add(Mobil.fromJson(value));
+      });
+
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,656 +93,198 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                   ),
                   const SizedBox(height: 17),
-                  Container(
-                    width: 280,
-                    height: 146,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(14.0),
-                      border: Border.all(
-                        color: const Color(0xFF16A6CC),
-                        width: 1,
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10, left: 14),
-                              child: Text(
-                                'All New Rush',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black,
-                                ),
+                  Expanded(
+                    flex: 0,
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemCount: mobileDataList.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.only(bottom: 17),
+                          child: Container(
+                            width: 280,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(14.0),
+                              border: Border.all(
+                                color: const Color(0xFF16A6CC),
+                                width: 1,
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 66),
-                              child: Text(
-                                'SUV',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: const Color(0xff90A3BF),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 13,
-                                top: 22,
-                              ),
-                              child: Image.asset(
-                                'asset/admin/car.png',
-                                width: 126,
-                                height: 59,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Row(
+                            child: Row(
                               children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 34, left: 20),
-                                  child: Image.asset(
-                                    'asset/admin/transmission.png',
-                                    width: 14,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 34,
-                                  ),
-                                  child: Text(
-                                    'Manual',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400,
-                                      color: const Color(0xff90A3BF),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 9,
-                            ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 0, left: 20),
-                                  child: Image.asset(
-                                    'asset/admin/seats.png',
-                                    width: 14,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 0,
-                                  ),
-                                  child: Text(
-                                    '6 seats',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400,
-                                      color: const Color(0xff90A3BF),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 14, left: 20),
-                              child: Text.rich(
-                                TextSpan(
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    TextSpan(
-                                      text: 'Rp. ',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 11.0,
-                                        fontWeight: FontWeight.w700,
-                                        color: const Color(0xff32B768),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 10, left: 14),
+                                      child: Text(
+                                        mobileDataList[index].nama,
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.black,
+                                        ),
                                       ),
                                     ),
-                                    TextSpan(
-                                      text: '350.000/',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 11.0,
-                                        fontWeight: FontWeight.w700,
-                                        color: const Color(0xff32B768),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 14),
+                                      child: Text(
+                                        mobileDataList[index].tipemobil,
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                          color: const Color(0xff90A3BF),
+                                        ),
                                       ),
                                     ),
-                                    TextSpan(
-                                      text: ' day',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 11.0,
-                                        color: const Color(0xff90A3BF),
-                                        fontWeight: FontWeight.w500,
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        left: 13,
+                                        top: 22,
+                                      ),
+                                      child: Image.network(
+                                        mobileDataList[index].gambar,
+                                        loadingBuilder:
+                                            (context, child, loadingProgress) {
+                                          if (loadingProgress != null) {
+                                            print(loadingProgress
+                                                .cumulativeBytesLoaded);
+                                            return CircularProgressIndicator(
+                                                value: loadingProgress
+                                                        .cumulativeBytesLoaded /
+                                                    loadingProgress
+                                                        .expectedTotalBytes!);
+                                          }
+                                          return child;
+                                        },
+                                        width: 126,
+                                        height: 59,
+                                        scale: 1,
+                                        repeat: ImageRepeat.noRepeat,
                                       ),
                                     ),
                                   ],
                                 ),
-                              ),
-                            )
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            bottom: 115,
-                          ),
-                          child: InkWell(
-                            onTap: () {},
-                            child: Image.asset(
-                              'asset/admin/x.png',
-                              width: 12,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ), //ENDS HERE BRUH
-
-                  const SizedBox(height: 17),
-                  Container(
-                    width: 280,
-                    height: 146,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(14.0),
-                      border: Border.all(
-                        color: const Color(0xFF16A6CC),
-                        width: 1,
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10, left: 14),
-                              child: Text(
-                                'All New Rush',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 66),
-                              child: Text(
-                                'SUV',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: const Color(0xff90A3BF),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 13,
-                                top: 22,
-                              ),
-                              child: Image.asset(
-                                'asset/admin/car.png',
-                                width: 126,
-                                height: 59,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 34, left: 20),
-                                  child: Image.asset(
-                                    'asset/admin/transmission.png',
-                                    width: 14,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 34,
-                                  ),
-                                  child: Text(
-                                    'Manual',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400,
-                                      color: const Color(0xff90A3BF),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 9,
-                            ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 0, left: 20),
-                                  child: Image.asset(
-                                    'asset/admin/seats.png',
-                                    width: 14,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 0,
-                                  ),
-                                  child: Text(
-                                    '6 seats',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400,
-                                      color: const Color(0xff90A3BF),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 14, left: 20),
-                              child: Text.rich(
-                                TextSpan(
+                                Column(
                                   children: [
-                                    TextSpan(
-                                      text: 'Rp. ',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 11.0,
-                                        fontWeight: FontWeight.w700,
-                                        color: const Color(0xff32B768),
-                                      ),
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 34, left: 20),
+                                          child: Image.asset(
+                                            'asset/admin/transmission.png',
+                                            width: 14,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 4,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            top: 34,
+                                          ),
+                                          child: Text(
+                                            'Manual',
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.w400,
+                                              color: const Color(0xff90A3BF),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    TextSpan(
-                                      text: '350.000/',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 11.0,
-                                        fontWeight: FontWeight.w700,
-                                        color: const Color(0xff32B768),
-                                      ),
+                                    const SizedBox(
+                                      height: 9,
                                     ),
-                                    TextSpan(
-                                      text: ' day',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 11.0,
-                                        color: const Color(0xff90A3BF),
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 0, left: 20),
+                                          child: Image.asset(
+                                            'asset/admin/seats.png',
+                                            width: 14,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 4,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            top: 0,
+                                          ),
+                                          child: Text(
+                                            '6 seats',
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.w400,
+                                              color: const Color(0xff90A3BF),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 14, left: 20),
+                                      child: Text.rich(
+                                        TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: 'Rp. ',
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 11.0,
+                                                fontWeight: FontWeight.w700,
+                                                color: const Color(0xff32B768),
+                                              ),
+                                            ),
+                                            TextSpan(
+                                              text: '350.000/',
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 11.0,
+                                                fontWeight: FontWeight.w700,
+                                                color: const Color(0xff32B768),
+                                              ),
+                                            ),
+                                            TextSpan(
+                                              text: ' day',
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 11.0,
+                                                color: const Color(0xff90A3BF),
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    )
                                   ],
                                 ),
-                              ),
-                            )
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            bottom: 115,
-                          ),
-                          child: InkWell(
-                            onTap: () {},
-                            child: Image.asset(
-                              'asset/admin/x.png',
-                              width: 12,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ), //ENDS HERE BRUH
-
-                  const SizedBox(height: 17),
-                  Container(
-                    width: 280,
-                    height: 146,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(14.0),
-                      border: Border.all(
-                        color: const Color(0xFF16A6CC),
-                        width: 1,
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10, left: 14),
-                              child: Text(
-                                'All New Rush',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 66),
-                              child: Text(
-                                'SUV',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: const Color(0xff90A3BF),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 13,
-                                top: 22,
-                              ),
-                              child: Image.asset(
-                                'asset/admin/car.png',
-                                width: 126,
-                                height: 59,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 34, left: 20),
-                                  child: Image.asset(
-                                    'asset/admin/transmission.png',
-                                    width: 14,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                    top: 34,
+                                    bottom: 115,
                                   ),
-                                  child: Text(
-                                    'Manual',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400,
-                                      color: const Color(0xff90A3BF),
+                                  child: InkWell(
+                                    onTap: () {},
+                                    child: Image.asset(
+                                      'asset/admin/x.png',
+                                      width: 12,
                                     ),
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(
-                              height: 9,
-                            ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 0, left: 20),
-                                  child: Image.asset(
-                                    'asset/admin/seats.png',
-                                    width: 14,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 0,
-                                  ),
-                                  child: Text(
-                                    '6 seats',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400,
-                                      color: const Color(0xff90A3BF),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 14, left: 20),
-                              child: Text.rich(
-                                TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: 'Rp. ',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 11.0,
-                                        fontWeight: FontWeight.w700,
-                                        color: const Color(0xff32B768),
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: '350.000/',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 11.0,
-                                        fontWeight: FontWeight.w700,
-                                        color: const Color(0xff32B768),
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: ' day',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 11.0,
-                                        color: const Color(0xff90A3BF),
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            bottom: 115,
                           ),
-                          child: InkWell(
-                            onTap: () {},
-                            child: Image.asset(
-                              'asset/admin/x.png',
-                              width: 12,
-                            ),
-                          ),
-                        ),
-                      ],
+                        );
+                      },
                     ),
-                  ), //ENDS HERE BRUH
-
-                  const SizedBox(height: 17),
-                  Container(
-                    width: 280,
-                    height: 146,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(14.0),
-                      border: Border.all(
-                        color: const Color(0xFF16A6CC),
-                        width: 1,
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10, left: 14),
-                              child: Text(
-                                'All New Rush',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 66),
-                              child: Text(
-                                'SUV',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: const Color(0xff90A3BF),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 13,
-                                top: 22,
-                              ),
-                              child: Image.asset(
-                                'asset/admin/car.png',
-                                width: 126,
-                                height: 59,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 34, left: 20),
-                                  child: Image.asset(
-                                    'asset/admin/transmission.png',
-                                    width: 14,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 34,
-                                  ),
-                                  child: Text(
-                                    'Manual',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400,
-                                      color: const Color(0xff90A3BF),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 9,
-                            ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 0, left: 20),
-                                  child: Image.asset(
-                                    'asset/admin/seats.png',
-                                    width: 14,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 0,
-                                  ),
-                                  child: Text(
-                                    '6 seats',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w400,
-                                      color: const Color(0xff90A3BF),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 14, left: 20),
-                              child: Text.rich(
-                                TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: 'Rp. ',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 11.0,
-                                        fontWeight: FontWeight.w700,
-                                        color: const Color(0xff32B768),
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: '350.000/',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 11.0,
-                                        fontWeight: FontWeight.w700,
-                                        color: const Color(0xff32B768),
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: ' day',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 11.0,
-                                        color: const Color(0xff90A3BF),
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            bottom: 115,
-                          ),
-                          child: InkWell(
-                            onTap: () {},
-                            child: Image.asset(
-                              'asset/admin/x.png',
-                              width: 12,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ), //ENDS HERE BRUH
+                  ),
                 ],
               ),
             ),

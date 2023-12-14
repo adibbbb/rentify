@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/services.dart';
-import 'package:rentify/admin%20page/promo.dart';
+import 'package:rentify/Models/mobil_data.dart';
 
 class AddProduct extends StatefulWidget {
   const AddProduct({super.key});
@@ -12,11 +12,14 @@ class AddProduct extends StatefulWidget {
 }
 
 class _AddProductState extends State<AddProduct> {
+  //Form Input
+  late String product;
   String? selectedBrand; // Define selectedBrand as a state variable
   String? selectedTransmission;
   String? selectedSeat;
-
-  String filePath = '';
+  late String price;
+  PlatformFile? file;
+  late String fileName;
 
   Future<void> _pickFile() async {
     try {
@@ -24,7 +27,10 @@ class _AddProductState extends State<AddProduct> {
 
       if (result != null) {
         setState(() {
-          filePath = result.files.single.path ?? '';
+          // file = result.files.single.path ?? '';
+          file = result.files.single;
+          fileName = result.files.single.name;
+          print(file);
         });
       } else {
         // User canceled the file picking
@@ -109,6 +115,7 @@ class _AddProductState extends State<AddProduct> {
                         color: const Color(0xffC8EDF9),
                       ),
                       child: TextFormField(
+                        onChanged: (value) => product = value,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.transparent,
@@ -321,6 +328,8 @@ class _AddProductState extends State<AddProduct> {
                         color: const Color(0xffC8EDF9),
                       ),
                       child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        onChanged: (value) => price = value,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.transparent,
@@ -344,7 +353,7 @@ class _AddProductState extends State<AddProduct> {
                               color: const Color.fromARGB(165, 34, 34, 34)),
                         ),
                       ),
-                    ), //END CONTAINER DROPDOWN
+                    ),
 
                     Padding(
                       padding: const EdgeInsets.fromLTRB(5, 12, 32, 0),
@@ -374,6 +383,11 @@ class _AddProductState extends State<AddProduct> {
                         ),
                       ),
                     ),
+                    if (file != null) ...{
+                      Padding(
+                          padding: const EdgeInsets.fromLTRB(1, 2, 1, 0),
+                          child: Text('Uploaded: $fileName')),
+                    }
                   ],
                 ),
               ),
@@ -384,10 +398,26 @@ class _AddProductState extends State<AddProduct> {
               padding: const EdgeInsets.fromLTRB(35, 600, 32, 0),
               child: IconButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => PromoPage()),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => PromoPage()),
+                  // );
+
+                  Mobil(
+                          gambar: '',
+                          tahun: '',
+                          detailgambar:
+                              file ?? PlatformFile(name: 'NOT FOUND', size: 0),
+                          tipemobil: '',
+                          harga: price,
+                          nama: product,
+                          penumpang: '',
+                          bensin: '',
+                          cc: '',
+                          transmisi: selectedTransmission ?? '',
+                          seat: selectedSeat ?? '',
+                          brand: selectedBrand ?? '')
+                      .create();
                 },
                 icon: Image.asset(
                   'asset/admin/add product.png',
