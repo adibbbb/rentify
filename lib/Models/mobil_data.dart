@@ -19,6 +19,8 @@ class Mobil {
   final String seat;
   final String brand;
 
+  get key => null;
+
   create() async {
     final DatabaseReference db =
         FirebaseDatabase.instance.ref().child('mobils');

@@ -95,194 +95,214 @@ class _ProductPageState extends State<ProductPage> {
                   const SizedBox(height: 17),
                   Expanded(
                     flex: 0,
-                    child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      shrinkWrap: true,
-                      itemCount: mobileDataList.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: EdgeInsets.only(bottom: 17),
-                          child: Container(
-                            width: 280,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(14.0),
-                              border: Border.all(
-                                color: const Color(0xFF16A6CC),
-                                width: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: mobileDataList.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 17),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 5.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                  color: const Color(0xff16A6CC),
+                                  width: 1.0,
+                                ),
                               ),
-                            ),
-                            child: Row(
-                              children: [
-                                Column(
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(15, 5, 5, 5),
+                                child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 10, left: 14),
-                                      child: Text(
-                                        mobileDataList[index].nama,
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 14),
-                                      child: Text(
-                                        mobileDataList[index].tipemobil,
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400,
-                                          color: const Color(0xff90A3BF),
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: 13,
-                                        top: 22,
-                                      ),
-                                      child: Image.network(
-                                        mobileDataList[index].gambar,
-                                        loadingBuilder:
-                                            (context, child, loadingProgress) {
-                                          if (loadingProgress != null) {
-                                            print(loadingProgress
-                                                .cumulativeBytesLoaded);
-                                            return CircularProgressIndicator(
-                                                value: loadingProgress
-                                                        .cumulativeBytesLoaded /
-                                                    loadingProgress
-                                                        .expectedTotalBytes!);
-                                          }
-                                          return child;
-                                        },
-                                        width: 126,
-                                        height: 59,
-                                        scale: 1,
-                                        repeat: ImageRepeat.noRepeat,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children: [
                                     Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              top: 34, left: 20),
-                                          child: Image.asset(
-                                            'asset/admin/transmission.png',
-                                            width: 14,
+                                        Text(
+                                          mobileDataList[index].nama,
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                        const SizedBox(
-                                          width: 4,
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            top: 34,
-                                          ),
-                                          child: Text(
-                                            'Manual',
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.w400,
-                                              color: const Color(0xff90A3BF),
-                                            ),
-                                          ),
-                                        ),
+                                        IconButton(
+                                            onPressed: () {},
+                                            icon: const Icon(
+                                              Icons.close,
+                                              size: 14,
+                                              color: Color(0xFF16A6CC),
+                                            )),
                                       ],
-                                    ),
-                                    const SizedBox(
-                                      height: 9,
                                     ),
                                     Row(
                                       children: [
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              top: 0, left: 20),
-                                          child: Image.asset(
-                                            'asset/admin/seats.png',
-                                            width: 14,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 4,
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            top: 0,
-                                          ),
+                                        SizedBox(
+                                          height: 40,
                                           child: Text(
-                                            '6 seats',
+                                            mobileDataList[index].tipemobil,
                                             style: GoogleFonts.poppins(
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.w400,
                                               color: const Color(0xff90A3BF),
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w500,
                                             ),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 14, left: 20),
-                                      child: Text.rich(
-                                        TextSpan(
+                                        const SizedBox(width: 45),
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment
+                                              .start, // Align the columns to the start
                                           children: [
-                                            TextSpan(
-                                              text: 'Rp. ',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 11.0,
-                                                fontWeight: FontWeight.w700,
-                                                color: const Color(0xff32B768),
-                                              ),
+                                            Row(
+                                              children: [
+                                                const Icon(
+                                                  Icons.storage,
+                                                  size: 10,
+                                                  color: Color(0xff90A3BF),
+                                                ), // Storage icon
+                                                const SizedBox(width: 6),
+                                                Text(
+                                                  mobileDataList[index].bensin,
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: 10,
+                                                      color: const Color(
+                                                          0xff90A3BF)),
+                                                ),
+                                              ],
                                             ),
-                                            TextSpan(
-                                              text: '350.000/',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 11.0,
-                                                fontWeight: FontWeight.w700,
-                                                color: const Color(0xff32B768),
-                                              ),
+                                            const SizedBox(
+                                              height: 5,
                                             ),
-                                            TextSpan(
-                                              text: ' day',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 11.0,
-                                                color: const Color(0xff90A3BF),
-                                                fontWeight: FontWeight.w500,
-                                              ),
+                                            Row(
+                                              children: [
+                                                const Icon(
+                                                  Icons.settings,
+                                                  size: 10,
+                                                  color: Color(0xff90A3BF),
+                                                ), // Settings icon
+                                                const SizedBox(width: 6),
+                                                Text(
+                                                  mobileDataList[index]
+                                                      .transmisi,
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: 10,
+                                                      color: const Color(
+                                                          0xff90A3BF)),
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
-                                      ),
-                                    )
+                                        const SizedBox(
+                                            width: 14), // Adjust the width here
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment
+                                              .start, // Align the columns to the start
+                                          children: [
+                                            Row(
+                                              children: [
+                                                const Icon(
+                                                  Icons.people,
+                                                  size: 10,
+                                                  color: Color(0xff90A3BF),
+                                                ), // People icon
+                                                const SizedBox(width: 5),
+                                                Text(
+                                                  mobileDataList[index]
+                                                      .penumpang,
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: 10,
+                                                      color: const Color(
+                                                          0xff90A3BF)),
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                            Row(
+                                              children: [
+                                                const Icon(
+                                                  Icons.calendar_today,
+                                                  size: 10,
+                                                  color: Color(0xff90A3BF),
+                                                ), // Calendar icon
+                                                const SizedBox(width: 6),
+                                                Text(
+                                                  mobileDataList[index].tahun,
+                                                  style: GoogleFonts.poppins(
+                                                      fontSize: 10,
+                                                      color: const Color(
+                                                          0xff90A3BF)),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Image.network(
+                                          mobileDataList[index].gambar,
+                                          loadingBuilder: (context, child,
+                                              loadingProgress) {
+                                            if (loadingProgress != null) {
+                                              print(loadingProgress
+                                                  .cumulativeBytesLoaded);
+                                              return CircularProgressIndicator(
+                                                  value: loadingProgress
+                                                          .cumulativeBytesLoaded /
+                                                      loadingProgress
+                                                          .expectedTotalBytes!);
+                                            }
+                                            return child;
+                                          },
+                                          width: 126,
+                                          height: 59,
+                                          scale: 1,
+                                          repeat: ImageRepeat.noRepeat,
+                                        ),
+                                        const SizedBox(width: 5),
+                                        RichText(
+                                          text: TextSpan(
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors
+                                                  .black, // Default text color
+                                            ),
+                                            children: [
+                                              TextSpan(
+                                                text: mobileDataList[index]
+                                                        .harga +
+                                                    '/',
+                                                style: const TextStyle(
+                                                    color: Colors.green),
+                                              ),
+                                              const TextSpan(
+                                                text: 'day',
+                                                style: TextStyle(
+                                                    color: Color(0xff90A3BF)),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ],
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    bottom: 115,
-                                  ),
-                                  child: InkWell(
-                                    onTap: () {},
-                                    child: Image.asset(
-                                      'asset/admin/x.png',
-                                      width: 12,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],
