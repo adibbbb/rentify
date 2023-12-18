@@ -31,8 +31,7 @@ class SuccessPage extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                        text:
-                            "Awesome! You’ve successfully\nupdated your password ",
+                        text: "Check your email to reset the password! ",
                         style: GoogleFonts.poppins(
                             fontSize: 14, color: Color(0xFF888888)))
                   ]),

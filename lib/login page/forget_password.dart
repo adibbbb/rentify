@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rentify/login page/forgetpass_email.dart';
-// import 'package:email_auth/email_auth.dart';
+import 'package:rentify/login%20page/success_pass.dart';
 
 class ForgetPassPage extends StatefulWidget {
-  const ForgetPassPage({super.key});
+  const ForgetPassPage({Key? key}) : super(key: key);
 
   @override
   State<ForgetPassPage> createState() => _ForgetPassPageState();
@@ -12,6 +13,7 @@ class ForgetPassPage extends StatefulWidget {
 
 class _ForgetPassPageState extends State<ForgetPassPage> {
   TextEditingController emailController = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +103,9 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                       const SizedBox(
                           width: 8), // Add spacing between text and button
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          // Navigasi ke halaman sign in
+                        },
                         style: TextButton.styleFrom(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 1.0)),
@@ -123,18 +127,11 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                           padding: const EdgeInsets.fromLTRB(0, 172, 25, 0),
                           child: IconButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return const PassEmailPage();
-                                  },
-                                ),
-                              );
+                              _resetPassword();
                             },
                             icon: Image.asset(
                               'asset/login/submt.png',
-                            ), // Replace with the path to your image asset.
+                            ),
                           ),
                         ),
                       ),
@@ -147,5 +144,26 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
         ],
       ),
     );
+  }
+
+  Future<void> _resetPassword() async {
+    try {
+      await _auth.sendPasswordResetEmail(email: emailController.text);
+      // Tampilkan pesan sukses atau arahkan ke halaman lain
+      print('Password reset email sent successfully');
+      // Navigasi ke halaman konfirmasi reset password
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return SuccessPage();
+          },
+        ),
+      );
+    } catch (error) {
+      // Handle error
+      print('Error sending password reset email: $error');
+      // Tampilkan pesan error kepada pengguna jika perlu
+    }
   }
 }
