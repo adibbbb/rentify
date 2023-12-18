@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rentify/login page/forgetpass_email.dart';
+import 'package:rentify/login%20page/login.dart';
 import 'package:rentify/login%20page/success_pass.dart';
 
 class ForgetPassPage extends StatefulWidget {
@@ -104,7 +105,14 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                           width: 8), // Add spacing between text and button
                       TextButton(
                         onPressed: () {
-                          // Navigasi ke halaman sign in
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return LoginPage();
+                              },
+                            ),
+                          ); // Navigasi ke halaman sign in
                         },
                         style: TextButton.styleFrom(
                             padding:

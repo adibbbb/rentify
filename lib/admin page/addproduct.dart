@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:rentify/Models/mobil_data.dart';
+import 'package:rentify/admin page/product.dart';
 
 class AddProduct extends StatefulWidget {
   const AddProduct({super.key});
@@ -45,6 +46,32 @@ class _AddProductState extends State<AddProduct> {
       // Handle errors
       print('Error picking file: $e');
     }
+  }
+  
+
+  void _showMyDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Success!'),
+          content: Text('Product added successfully.'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop(); // Dismiss the alert
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            ProductPage())); // Navigate to the ProductDart page
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   String? selectedValue = null;
@@ -632,6 +659,7 @@ class _AddProductState extends State<AddProduct> {
                     ],
                   ),
                 ),
+
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(35, 25, 32, 0),
@@ -652,6 +680,7 @@ class _AddProductState extends State<AddProduct> {
                                 seat: selectedSeat ?? '',
                                 brand: selectedBrand ?? '')
                             .create();
+                        _showMyDialog();
                       },
                       icon: Image.asset(
                         'asset/admin/add product.png',
