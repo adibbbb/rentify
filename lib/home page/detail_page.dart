@@ -47,17 +47,13 @@ class DetailPage extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: Colors.black,
-                  width: 1.0,
-                ),
               ),
               child: ClipRRect(
                 borderRadius:
                     BorderRadius.circular(20), // BorderRadius untuk gambar
-                child: Image.asset(
+                child: Image.network(
                   mobil.gambar,
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                   width: 321,
                   height: 191,
                 ),

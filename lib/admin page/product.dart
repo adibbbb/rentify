@@ -16,7 +16,8 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   final DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
-  List<Mobil> mobileDataList = [];
+  List<Mobil> mobilDataList = [];
+  List<String> mobilKeyList = [];
 
   @override
   void initState() {
@@ -27,19 +28,24 @@ class _ProductPageState extends State<ProductPage> {
   Future<void> fetchData() async {
     DataSnapshot dataSnapshot = await databaseReference.child('mobils').get();
 
-    mobileDataList.clear();
+    mobilDataList.clear();
 
     if (dataSnapshot.value != null && dataSnapshot.value is Map) {
       Map<String, dynamic> mobilsData =
           dataSnapshot.value as Map<String, dynamic>;
-
       mobilsData.forEach((key, value) {
-        mobileDataList.add(Mobil.fromJson(value));
+        mobilKeyList.add(key);
+        mobilDataList.add(Mobil.fromJson(value));
       });
 
       setState(() {});
     }
   }
+
+  Future<void> deleteProduct(productId) async {
+    await databaseReference.child('mobils/${productId}').remove();
+    await fetchData();
+  } // Refresh the data after deletion
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +106,7 @@ class _ProductPageState extends State<ProductPage> {
                       child: ListView.builder(
                         scrollDirection: Axis.vertical,
                         shrinkWrap: true,
-                        itemCount: mobileDataList.length,
+                        itemCount: mobilDataList.length,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.only(bottom: 17),
@@ -126,14 +132,17 @@ class _ProductPageState extends State<ProductPage> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          mobileDataList[index].nama,
+                                          mobilDataList[index].nama,
                                           style: GoogleFonts.poppins(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
                                         IconButton(
-                                            onPressed: () {},
+                                            onPressed: () async {
+                                              deleteProduct(
+                                                  mobilKeyList[index]);
+                                            },
                                             icon: const Icon(
                                               Icons.close,
                                               size: 14,
@@ -146,7 +155,7 @@ class _ProductPageState extends State<ProductPage> {
                                         SizedBox(
                                           height: 40,
                                           child: Text(
-                                            mobileDataList[index].tipemobil,
+                                            mobilDataList[index].tipemobil,
                                             style: GoogleFonts.poppins(
                                               color: const Color(0xff90A3BF),
                                               fontSize: 12,
@@ -168,7 +177,7 @@ class _ProductPageState extends State<ProductPage> {
                                                 ), // Storage icon
                                                 const SizedBox(width: 6),
                                                 Text(
-                                                  mobileDataList[index].bensin,
+                                                  mobilDataList[index].bensin,
                                                   style: GoogleFonts.poppins(
                                                       fontSize: 10,
                                                       color: const Color(
@@ -188,7 +197,7 @@ class _ProductPageState extends State<ProductPage> {
                                                 ), // Settings icon
                                                 const SizedBox(width: 6),
                                                 Text(
-                                                  mobileDataList[index]
+                                                  mobilDataList[index]
                                                       .transmisi,
                                                   style: GoogleFonts.poppins(
                                                       fontSize: 10,
@@ -214,7 +223,7 @@ class _ProductPageState extends State<ProductPage> {
                                                 ), // People icon
                                                 const SizedBox(width: 5),
                                                 Text(
-                                                  mobileDataList[index]
+                                                  mobilDataList[index]
                                                       .penumpang,
                                                   style: GoogleFonts.poppins(
                                                       fontSize: 10,
@@ -235,7 +244,7 @@ class _ProductPageState extends State<ProductPage> {
                                                 ), // Calendar icon
                                                 const SizedBox(width: 6),
                                                 Text(
-                                                  mobileDataList[index].tahun,
+                                                  mobilDataList[index].tahun,
                                                   style: GoogleFonts.poppins(
                                                       fontSize: 10,
                                                       color: const Color(
@@ -250,7 +259,7 @@ class _ProductPageState extends State<ProductPage> {
                                     Row(
                                       children: [
                                         Image.network(
-                                          mobileDataList[index].gambar,
+                                          mobilDataList[index].gambar,
                                           loadingBuilder: (context, child,
                                               loadingProgress) {
                                             if (loadingProgress != null) {
@@ -280,9 +289,9 @@ class _ProductPageState extends State<ProductPage> {
                                             ),
                                             children: [
                                               TextSpan(
-                                                text: mobileDataList[index]
-                                                        .harga +
-                                                    '/',
+                                                text:
+                                                    mobilDataList[index].harga +
+                                                        '/',
                                                 style: const TextStyle(
                                                     color: Colors.green),
                                               ),

@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rentify/Models/mobil_data.dart';
@@ -17,6 +18,34 @@ class RekomendasiWidget extends StatefulWidget {
 }
 
 class _RekomendasiWidgetState extends State<RekomendasiWidget> {
+  final DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
+  List<Mobil> mobil = [];
+  List<String> mobilKeyList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    DataSnapshot dataSnapshot = await databaseReference.child('mobils').get();
+
+    mobil.clear();
+
+    if (dataSnapshot.value != null && dataSnapshot.value is Map) {
+      Map<String, dynamic> mobilsData =
+          dataSnapshot.value as Map<String, dynamic>;
+      mobilsData.forEach((key, value) {
+        mobilKeyList.add(key);
+        mobil.add(Mobil.fromJson(value));
+      });
+      mobil.shuffle();
+
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,18 +65,7 @@ class _RekomendasiWidgetState extends State<RekomendasiWidget> {
                   color: Color(0xff16A6CC),
                 ),
               ),
-              TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'See All',
-                  style: TextStyle(
-                    fontFamily: 'Poppins-Medium', // Removed 'asset/fonts/'
-                    fontWeight: FontWeight.w500,
-                    fontSize: 10,
-                    color: Color(0xff16A6CC),
-                  ),
-                ),
-              ),
+             
             ],
           ),
           const SizedBox(height: 10),
@@ -58,7 +76,7 @@ class _RekomendasiWidgetState extends State<RekomendasiWidget> {
               viewportFraction: 0.4,
               // enableInfiniteScroll: false,
             ),
-            items: rekomendasi.map((i) {
+            items: mobil.map((i) {
               return Builder(
                 builder: (BuildContext context) {
                   return InkWell(
@@ -102,7 +120,7 @@ class _RekomendasiWidgetState extends State<RekomendasiWidget> {
                               ),
                             ),
                             const SizedBox(width: 45),
-                            Image.asset(
+                            Image.network(
                               i.gambar,
                               width: 140,
                               height: 67,

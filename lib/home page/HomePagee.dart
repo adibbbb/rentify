@@ -62,17 +62,7 @@ class _HomePageeState extends State<HomePagee> {
                       color: Color(0xff16A6CC),
                     ),
                   ),
-                  TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'See All',
-                        style: TextStyle(
-                          fontFamily: 'asset/fonts/Poppins-Medium.ttf',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 10,
-                          color: Color(0xff16A6CC),
-                        ),
-                      ))
+                  
                 ],
               ),
             ),

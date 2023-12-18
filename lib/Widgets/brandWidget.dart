@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:collection/collection.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rentify/Models/mobil_data.dart';
@@ -17,6 +18,33 @@ class BrandWidget extends StatefulWidget {
 }
 
 class _BrandWidgetState extends State<BrandWidget> {
+  final DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
+  List<Mobil> mobil = [];
+  List<String> mobilKeyList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    DataSnapshot dataSnapshot = await databaseReference.child('mobils').get();
+
+    mobil.clear();
+
+    if (dataSnapshot.value != null && dataSnapshot.value is Map) {
+      Map<String, dynamic> mobilsData =
+          dataSnapshot.value as Map<String, dynamic>;
+      mobilsData.forEach((key, value) {
+        mobilKeyList.add(key);
+        mobil.add(Mobil.fromJson(value));
+      });
+
+      setState(() {});
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -28,7 +56,7 @@ class _BrandWidgetState extends State<BrandWidget> {
 
   _getBrandMobil() {
     Map<String, List<Mobil>> groupedData = groupBy(
-      widget.dataMobil,
+      mobil,
       (e) => widget.spec == 'brand'
           ? e.brand
           : widget.spec == 'seat'
@@ -203,7 +231,7 @@ class _BrandWidgetState extends State<BrandWidget> {
                                 ),
                                 Row(
                                   children: [
-                                    Image.asset(
+                                    Image.network(
                                       i.gambar,
                                       width: 140,
                                       height: 67,

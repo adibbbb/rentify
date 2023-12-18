@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +14,23 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
+  final DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
+  List<String> mobilKeyList = [];
+  Map<String, dynamic> userData = {};
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    var uid = FirebaseAuth.instance.currentUser?.uid;
+    DataSnapshot dataSnapshot =
+        await databaseReference.child('users/$uid').get();
+    setState(() => userData = dataSnapshot.value as Map<String, dynamic>);
+  }
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -157,6 +176,7 @@ class _EditProfileState extends State<EditProfile> {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            initialValue: userData.toString(),
                             decoration: InputDecoration(
                               filled: true,
                               fillColor: const Color(0xffC8EDF9),
@@ -651,8 +671,8 @@ class _EditProfileState extends State<EditProfile> {
                             Expanded(
                               child: IconButton(
                                 icon: Container(
-                                  width: 390, 
-                                  height: 60, 
+                                  width: 390,
+                                  height: 60,
                                   child: Image.asset(
                                     'asset/profile/select file.png',
                                     fit: BoxFit.contain,
