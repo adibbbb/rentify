@@ -1,6 +1,9 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
+import 'package:rentify/admin%20page/navbaradmin.dart';
+import 'package:rentify/admin%20page/transaction.dart';
 
 class DetailTransaction extends StatelessWidget {
   const DetailTransaction({super.key});
@@ -25,7 +28,7 @@ class DetailTransaction extends StatelessWidget {
                 alignment: Alignment.center,
                 child: IconButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                   
                   },
                   icon: const Icon(
                     Icons.arrow_back,
@@ -49,7 +52,7 @@ class DetailTransaction extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(33, 182, 10, 0),
             child: Text(
-              "user812389120 wants to rent a car, please check the details bellow",
+              "Satria wants to rent a car, please check the details bellow",
               style: GoogleFonts.poppins(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
@@ -71,7 +74,7 @@ class DetailTransaction extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(47, 274, 0, 0),
             child: Text(
-              "All New Terios",
+              "Toyota Avanza",
               style: GoogleFonts.poppins(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
@@ -93,7 +96,7 @@ class DetailTransaction extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(47, 328, 0, 0),
             child: Text(
-              "user812389120",
+              "Satria",
               style: GoogleFonts.poppins(
                 fontSize: 8,
                 fontWeight: FontWeight.w400,
@@ -119,7 +122,7 @@ class DetailTransaction extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      "081234521273",
+                      "-",
                       style: GoogleFonts.poppins(
                         fontSize: 8,
                         fontWeight: FontWeight.w400,
@@ -135,7 +138,7 @@ class DetailTransaction extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     Clipboard.setData(
-                        const ClipboardData(text: "081234521273"));
+                        const ClipboardData(text: "-"));
                   },
                   child: Row(
                     children: [
@@ -168,7 +171,7 @@ class DetailTransaction extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      "adibb6776@gmail.com",
+                      "satriasyaiful004@gmail.com",
                       style: GoogleFonts.poppins(
                         fontSize: 8,
                         fontWeight: FontWeight.w400,
@@ -184,7 +187,7 @@ class DetailTransaction extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     Clipboard.setData(
-                        const ClipboardData(text: "adibb6776@gmail.com"));
+                        const ClipboardData(text: "satriasyaiful004@gmail.com"));
                   },
                   child: Row(
                     children: [
@@ -217,7 +220,14 @@ class DetailTransaction extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                      Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          NavbarAdmin()),
+                                );
+                  },
                   child: Image.asset(
                     'asset/admin/accept.png',
                     width: 102,
@@ -225,7 +235,14 @@ class DetailTransaction extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                      Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          NavbarAdmin()),
+                                );
+                  },
                   child: Image.asset(
                     'asset/admin/reject.png',
                     width: 102,

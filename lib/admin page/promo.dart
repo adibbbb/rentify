@@ -124,7 +124,12 @@ class _PromoPageState extends State<PromoPage> {
               padding: const EdgeInsets.fromLTRB(35, 600, 32, 0),
               child: IconButton(
                 onPressed: () {
-                
+                 Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          NavbarAdmin()),
+                                );
                 },
                 icon: Image.asset(
                   'asset/admin/add promo.png',

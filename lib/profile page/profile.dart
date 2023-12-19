@@ -44,7 +44,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Rentify Syahputra',
+                    'Satria',
                     style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
@@ -52,7 +52,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   const Text(
-                    'rentify@gmail.com',
+                    'satriasyaiful004@gmail.com',
                     style: TextStyle(
                       fontSize: 10, // Ukuran teks email
                       color: Colors.black, // Warna teks email
@@ -87,7 +87,7 @@ class ProfilePage extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => (const AccountPage()),
+                        builder: (context) => (const EditProfile()),
                       ));
                     },
                     child: Container(

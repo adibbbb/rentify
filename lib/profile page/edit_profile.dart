@@ -193,7 +193,7 @@ class _EditProfileState extends State<EditProfile> {
                                 ),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
-                              hintText: 'first name',
+                              hintText: 'Satria',
                               hintStyle: const TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
@@ -253,7 +253,7 @@ class _EditProfileState extends State<EditProfile> {
                                 ),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
-                              hintText: 'last name',
+                              hintText: 'Syaiful Haq',
                               hintStyle: const TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
@@ -315,7 +315,7 @@ class _EditProfileState extends State<EditProfile> {
                                 ),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
-                              hintText: 'rentify@gmail.com',
+                              hintText: 'satriasyaiful004@gmail.com',
                               hintStyle: const TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
@@ -340,84 +340,7 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ), // END TEXT FIELD EMAIL
                 //
-                //
-                const SizedBox(height: 5),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 12, 0, 0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(35, 0, 32, 0),
-                        child: Text(
-                          "Password",
-                          style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            color: const Color(0xFF888888),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(35, 12, 32, 0),
-                        child: SizedBox(
-                          height: 45,
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: TextField(
-                                  controller: passwordController,
-                                  // enabled: false,
-                                  obscureText: true,
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    color:
-                                        const Color.fromARGB(165, 34, 34, 34),
-                                  ),
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: const Color(0xffC8EDF9),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                        width: 0.8,
-                                        color: Color.fromARGB(209, 2, 214, 229),
-                                      ),
-                                      borderRadius: BorderRadius.circular(20.0),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
-                                        width: 0.8,
-                                        color: Color(0xFF16A6CC),
-                                      ),
-                                      borderRadius: BorderRadius.circular(20.0),
-                                    ),
-                                    hintText: 'Enter your password',
-                                    hintStyle: const TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color.fromARGB(165, 34, 34, 34)),
-                                    prefixIcon:
-                                        null, // Remove the default prefix icon
-                                    suffixIcon: Padding(
-                                      padding: const EdgeInsets.only(
-                                          right:
-                                              10.0), // Adjust the padding as needed
-                                      child: Image.asset(
-                                        'asset/profile/edit.png',
-                                        width: 14,
-                                        height: 14,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ), //END PASSWORD
+                
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -425,167 +348,7 @@ class _EditProfileState extends State<EditProfile> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(35, 12, 32, 0),
                       child: Text(
-                        "Date of Birth",
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          color: const Color(0xFF888888),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(35, 12, 32, 0),
-                      child: SizedBox(
-                        height: 45,
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                alignment: Alignment.centerLeft,
-                                width:
-                                    135, // Sesuaikan dengan lebar yang Anda inginkan
-                                height:
-                                    45, // Sesuaikan dengan tinggi yang Anda inginkan
-                                decoration: BoxDecoration(
-                                  color: const Color(
-                                      0xffC8EDF9), // Warna border radius
-                                  borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(
-                                    color:
-                                        const Color.fromARGB(209, 2, 214, 229),
-                                    width: 0.8, // Lebar outline border
-                                  ),
-                                ),
-                                child: TextButton(
-                                  onPressed: () {
-                                    DatePicker.showDatePicker(context,
-                                        showTitleActions: true,
-                                        minTime: DateTime.now(),
-                                        onChanged: (date) {
-                                      changeVariableOnUI(date);
-                                    },
-                                        onConfirm: (date) {},
-                                        currentTime: DateTime.now(),
-                                        locale: LocaleType.en);
-                                  },
-                                  child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        TextButton(
-                                            onPressed: () {
-                                              DatePicker.showDatePicker(context,
-                                                  showTitleActions: true,
-                                                  minTime: DateTime.now(),
-                                                  onChanged: (date) {
-                                                changeVariableOnUI(date);
-                                              },
-                                                  onConfirm: (date) {},
-                                                  currentTime: DateTime.now(),
-                                                  locale: LocaleType.en);
-                                            },
-                                            child: Text(
-                                              textAlign: TextAlign.start,
-                                              selectedDate,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: const TextStyle(
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w400,
-                                                color: const Color.fromARGB(
-                                                    165, 34, 34, 34),
-                                              ),
-                                            )),
-                                        const Icon(
-                                          Icons.arrow_drop_down,
-                                          color: Color(0xFF16A6CC),
-                                          size: 20.0,
-                                        ),
-                                      ]),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ), // END PASSWORD
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(35, 12, 32, 0),
-                      child: Text(
-                        "Address",
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          color: const Color(0xFF888888),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(35, 12, 32, 0),
-                      child: SizedBox(
-                        height: 45,
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: TextFormField(
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  color: const Color.fromARGB(165, 34, 34, 34),
-                                ),
-                                decoration: InputDecoration(
-                                  filled: true,
-                                  fillColor: const Color(0xffC8EDF9),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      width: 0.8,
-                                      color: Color.fromARGB(209, 2, 214, 229),
-                                    ),
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      width: 0.8,
-                                      color: Color(0xFF16A6CC),
-                                    ),
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                  hintText: 'Batam center 20 Ab 3',
-                                  hintStyle: const TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color.fromARGB(165, 34, 34, 34)),
-                                  prefixIcon:
-                                      null, // Remove the default prefix icon
-                                  suffixIcon: Padding(
-                                    padding: const EdgeInsets.only(
-                                        right:
-                                            10.0), // Adjust the padding as needed
-                                    child: Image.asset(
-                                      'asset/profile/edit.png',
-                                      width: 14,
-                                      height: 14,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ), // END PASSWORD
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(35, 12, 32, 0),
-                      child: Text(
-                        "Identification Number",
+                        "UID",
                         style: GoogleFonts.poppins(
                           fontSize: 12,
                           color: const Color(0xFF888888),

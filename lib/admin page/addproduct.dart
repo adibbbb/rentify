@@ -4,6 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:rentify/Models/mobil_data.dart';
 import 'package:rentify/admin page/product.dart';
+import 'package:rentify/admin%20page/navbaradmin.dart';
 
 class AddProduct extends StatefulWidget {
   const AddProduct({super.key});
@@ -65,7 +66,7 @@ class _AddProductState extends State<AddProduct> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            ProductPage())); // Navigate to the ProductDart page
+                            NavbarAdmin())); // Navigate to the ProductDart page
               },
             ),
           ],

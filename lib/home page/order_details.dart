@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rentify/button_nav_bar.dart';
 import 'package:rentify/transaction%20page/active.dart';
 
 class OrderDetaails extends StatefulWidget {
@@ -91,7 +92,7 @@ class _OrderDetaailsState extends State<OrderDetaails> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Toyota Avanza 2018',
+                      Text('Toyota Avanza',
                           style: GoogleFonts.poppins(
                               color: const Color(0xff16A6CC),
                               fontSize: 18,
@@ -108,7 +109,7 @@ class _OrderDetaailsState extends State<OrderDetaails> {
                             fontWeight: FontWeight.normal,
                           )),
                       const SizedBox(height: 5),
-                      Text('Putri Andini Arlianisa',
+                      Text('Satria Syaiful Haq',
                           style: GoogleFonts.inter(
                             fontSize: 14,
                             color: const Color(0xff3E3E3F),
@@ -129,14 +130,14 @@ class _OrderDetaailsState extends State<OrderDetaails> {
                             fontWeight: FontWeight.bold,
                           )),
                       const SizedBox(height: 15),
-                      Text('Transaction Number',
+                      Text('Transaction ID',
                           style: GoogleFonts.inter(
                             fontSize: 12,
                             color: const Color(0xff8D9091),
                             fontWeight: FontWeight.normal,
                           )),
                       const SizedBox(height: 5),
-                      Text('15041232103210310312',
+                      Text('2912GH2121',
                           style: GoogleFonts.inter(
                             fontSize: 14,
                             color: const Color(0xff3E3E3F),
@@ -150,7 +151,7 @@ class _OrderDetaailsState extends State<OrderDetaails> {
                             fontWeight: FontWeight.normal,
                           )),
                       const SizedBox(height: 5),
-                      Text('25-05-2023',
+                      Text('19-12-2023',
                           style: GoogleFonts.inter(
                             fontSize: 14,
                             color: const Color(0xff3E3E3F),
@@ -164,7 +165,7 @@ class _OrderDetaailsState extends State<OrderDetaails> {
                             fontWeight: FontWeight.normal,
                           )),
                       const SizedBox(height: 5),
-                      Text('Rp. 350.000',
+                      Text('Rp. 250.000',
                           style: GoogleFonts.inter(
                             fontSize: 14,
                             color: const Color(0xff3E3E3F),
@@ -192,7 +193,7 @@ class _OrderDetaailsState extends State<OrderDetaails> {
                             fontWeight: FontWeight.normal,
                           )),
                       const SizedBox(height: 5),
-                      Text('Rp.300.000',
+                      Text('Rp.200.000',
                           style: GoogleFonts.inter(
                             fontSize: 14,
                             color: const Color(0xff3E3E3F),
@@ -209,7 +210,7 @@ class _OrderDetaailsState extends State<OrderDetaails> {
             child: IconButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const ActivePage();
+                    return const BottomNavBar();
                   }));
                 },
                 icon: Image.asset('asset/product/confirm.png')),

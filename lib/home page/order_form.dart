@@ -343,7 +343,7 @@ class OrderFormState extends State<OrderForm> {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  'Mochammad Adib Soedibyo',
+                  'Satria Syaiful Haq',
                   style: GoogleFonts.poppins(
                     fontSize: 11,
                     fontWeight: FontWeight.normal,
@@ -363,7 +363,7 @@ class OrderFormState extends State<OrderForm> {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  '+62 852 6413 6452',
+                  '-',
                   style: GoogleFonts.poppins(
                     fontSize: 11,
                     fontWeight: FontWeight.normal,
@@ -383,7 +383,7 @@ class OrderFormState extends State<OrderForm> {
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  'sudibyoadib1504@gmail.com',
+                  'satriasyaiful004@gmail.com',
                   style: GoogleFonts.poppins(
                     fontSize: 11,
                     fontWeight: FontWeight.normal,
@@ -414,7 +414,7 @@ class OrderFormState extends State<OrderForm> {
                 ),
                 const SizedBox(width: 185),
                 Text(
-                  'Rp. 450.000',
+                  'Rp. 250.000',
                   style: GoogleFonts.poppins(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,

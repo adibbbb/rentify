@@ -92,7 +92,7 @@ class _OrderInformationState extends State<OrderInformation> {
                                     style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w600)),
-                                Text("Avanza New 2022",
+                                Text("Avanza",
                                     style: GoogleFonts.poppins(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w600)),
@@ -106,7 +106,7 @@ class _OrderInformationState extends State<OrderInformation> {
                                     style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w600)),
-                                Text("2 Days",
+                                Text("1 Days",
                                     style: GoogleFonts.poppins(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w600)),
@@ -120,7 +120,7 @@ class _OrderInformationState extends State<OrderInformation> {
                                     style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w600)),
-                                Text("29 February 2023",
+                                Text("19 Desember 2023",
                                     style: GoogleFonts.poppins(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w600)),
@@ -410,7 +410,7 @@ class _OrderInformationState extends State<OrderInformation> {
                     ),
                     const SizedBox(width: 120),
                     Text(
-                      'Rp. 350.000,00',
+                      'Rp. 250.000,00',
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,

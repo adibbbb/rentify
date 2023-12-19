@@ -172,7 +172,7 @@ class _ActivePageState extends State<ActivePage> {
                               ),
                               children: const [
                                 TextSpan(
-                                  text: 'Rp.300.000' + '/',
+                                  text: 'Rp.250.000' + '/',
                                   style: TextStyle(color: Colors.green),
                                 ),
                                 TextSpan(

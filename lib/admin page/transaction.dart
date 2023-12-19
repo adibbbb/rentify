@@ -341,7 +341,7 @@ class _TransactionPageState extends State<TransactionPage> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 25),
                                 child: Text(
-                                  'Rent from 10 Okt - 11 Okt',
+                                  'Rent from 19 Des - 20 Okt',
                                   style: GoogleFonts.poppins(
                                     fontSize: 8,
                                     fontWeight: FontWeight.w400,
@@ -367,7 +367,7 @@ class _TransactionPageState extends State<TransactionPage> {
                           Padding(
                             padding: const EdgeInsets.only(top: 29),
                             child: Text(
-                              'user812389120',
+                              'Satria',
                               style: GoogleFonts.poppins(
                                 fontSize: 8,
                                 fontWeight: FontWeight.w600,
@@ -398,7 +398,14 @@ class _TransactionPageState extends State<TransactionPage> {
                           Padding(
                             padding: const EdgeInsets.only(top: 8),
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          DetailTransaction()),
+                                );
+                              },
                               child: Image.asset(
                                 'asset/admin/confirm.png',
                                 width: 102,
@@ -698,7 +705,7 @@ class _TransactionPageState extends State<TransactionPage> {
                       Padding(
                         padding: const EdgeInsets.only(top: 25),
                         child: Text(
-                          'Ends in 2 day',
+                          'Ends in 1 day',
                           style: GoogleFonts.poppins(
                             fontSize: 10,
                             fontWeight: FontWeight.w600,
@@ -740,7 +747,7 @@ class _TransactionPageState extends State<TransactionPage> {
                           Padding(
                             padding: const EdgeInsets.only(top: 18, left: 25),
                             child: Text(
-                              'Agya 2023',
+                              'Toyota Avanza',
                               style: GoogleFonts.poppins(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
@@ -751,7 +758,7 @@ class _TransactionPageState extends State<TransactionPage> {
                           Padding(
                             padding: const EdgeInsets.only(left: 25),
                             child: Text(
-                              'Rent from 29 Aug - 30 Aug',
+                              'Rent from 19 Des - 20 Des',
                               style: GoogleFonts.poppins(
                                 fontSize: 8,
                                 fontWeight: FontWeight.w400,
@@ -776,7 +783,7 @@ class _TransactionPageState extends State<TransactionPage> {
                       Padding(
                         padding: const EdgeInsets.only(top: 29),
                         child: Text(
-                          'adibb2123',
+                          'satria',
                           style: GoogleFonts.poppins(
                             fontSize: 8,
                             fontWeight: FontWeight.w600,
@@ -789,7 +796,7 @@ class _TransactionPageState extends State<TransactionPage> {
                       Padding(
                         padding: const EdgeInsets.only(top: 25),
                         child: Text(
-                          'Ends in 2 day',
+                          'Ends in 1 day',
                           style: GoogleFonts.poppins(
                             fontSize: 10,
                             fontWeight: FontWeight.w600,
